@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Форма - Barbershop-adaptive</title>
+</head>
+<body class="body-form">
+	<header class="page-header">
+		<img class="page-header__logo" src="img/" alt="Borodinski" width="72" height="18">
+		<nav class="main-nav">
+			<button class="main-nav__toggle" type="button"></button>
+			<ul class="main-nav__list">
+				<li class="main-nav__item"><a href="#">Главная</a></li>
+				<li class="main-nav__item"><a href="#">Наши работы</a></li>
+				<li class="main-nav__item"><a href="#">Записаться</a></li>
+				<li class="main-nav__item"><a href="#">Контакты</a></li>
+				<li class="main-nav__item"><a href="#">HTML academy</a></li>
+			</ul>
+			<ul class="main-nav__user-list">
+				<li class="main-nav__user-item"><a href="#">Вход</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<form action="#" class="appointment">
+		<h1 class="appointment__title">Запись на стрижку</h1>
+		<fieldset class="appointment__full-name">
+			<input type="text" class="appointment__text-field text-field" name="surname" value="Фамилия">
+			<input type="text" class="appointment__text-field text-field" name="name" value="Имя">
+			<input type="text" class="appointment__text-field text-field" name="second name" value="Отчество">
+		</fieldset>
+		<fieldset class="appointment__contacts">
+			<input type="tel" class="appointment__text-field  text-field" name="tel" value="Контактный телефон">
+			<input type="email" class="appointment__text-field  text-field" name="email" value="Контактный e-mail">
+		</fieldset>
+		
+		<textarea name="additional-info" class="text-field appointment__textarea"></textarea>
+		
+		<fieldset class="appointment__beard">
+			<legend>Выберите модель бороды:</legend>
+			<label class="appointment__beard-type">
+				<input type="radio" name="beard-type">
+				адмирал
+				<span class="visible-radiobox"></span>
+			</label>
+			<label class="appointment__beard-type">
+				<input type="radio" name="beard-type">
+				лесоруб
+				<span class="visible-radiobox"></span>
+			</label>
+			<label class="appointment__beard-type">
+				<input type="radio" name="beard-type">
+				полярник
+				<span class="visible-radiobox"></span>
+			</label>
+			<label class="appointment__beard-type">
+				<input type="radio" name="beard-type">
+				боярин
+				<span class="visible-radiobox"></span>
+			</label>
+			<label class="appointment__beard-type">
+				<input type="radio" name="beard-type">
+				мудрец
+				<span class="visible-radiobox"></span>
+			</label>
+		</fieldset>
+		
+		<fieldset class="appointment__add-srvices">
+			<legend>Дополнительные услуги:</legend>
+			<label class="appointment__add-service">
+				<input type="checkbox" name="paint beard">
+				Подкрасить бороду
+				<span class="visible-checkbox"></span>
+			</label>
+			<label class="appointment__add-service">
+				<input type="checkbox" name="mustache form">
+				<span class="visible-checkbox"></span>
+				Накрутить усы
+			</label>
+			<label class="appointment__add-service">
+				<input type="checkbox" name="brush beard">
+				<span class="visible-checkbox"></span>
+				Причесать бороду
+			</label>
+			<label class="appointment__add-service">
+				<input type="checkbox" name="trim">
+				<span class="visible-checkbox"></span>
+				Подровнять виски
+			</label>
+			<label class="appointment__add-service">
+				<input type="checkbox" name="remove grey">
+				<span class="visible-checkbox"></span>
+				Убрать седину
+			</label>
+			<label class="appointment__add-service">
+				<input type="checkbox" name="Polished bald head">
+				<span class="visible-checkbox"></span>
+				Отполировать лысину
+			</label>
+		</fieldset>
+		<button class="btn appointment__submit">Отправить заявку</button>
+	</form>
+	
+	<footer class="page-footer">
+		<div class="page-footer__contacts">
+			<b>Барбершоп Бородинский</b>
+			г. Санкт-Петербург, ул. Большая Конюшенная 19/8
+			<a href="tel:+78125556666">+7 (812) 555-66-66</a>
+		</div>
+		<div class="social-links">
+			<a href="#" class="social-link social-link_vk">Вконтакте</a>
+			<a href="#" class="social-link social-link_fb">Фейсбук</a>
+			<a href="#" class="social-link social-link_inst">Инстаграмм</a>
+		</div>
+		<div class="page-footer__copyright">
+			Разработано:
+			<a href="#" class="btn page-footer__cipyright-link">html academy</a> 
+		</div>
+	</footer>
+</body>
+</html>
