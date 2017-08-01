@@ -1,0 +1,136 @@
+.advantages__list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #242424;
+  color: #ffffff;
+}
+
+.advantages__item {
+  position: relative;
+  height: 409px;
+  text-align: center;
+  padding-top: 210px;
+}
+
+.advantages__item::before {
+  content: "";
+  position: absolute;
+  top: 82px;
+  left: 50%;
+  margin-left: -48px;
+  width: 95px;
+  height: 95px;
+  background: url("../img/advantages-sprite.png") no-repeat;
+}
+
+.advantages__item:nth-child(1)::before {
+  background-position: 0 0;
+}
+
+.advantages__item:nth-child(2)::before {
+  background-position: -160px 0;
+}
+
+.advantages__item:nth-child(3)::before {
+  background-position: -320px 0;
+}
+
+.advantages__item-title {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+.advantages__item-description {
+  margin: 0;
+  padding: 0 40px;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+@media @tablet-width {
+  .advantages__list {
+    background-color: #353535;
+  }
+
+  .advantages__item {
+    display: block;
+    height: 178px;
+    padding-top: 30px;
+    padding-left: 160px;
+  }
+
+  .advantages__item:last-of-type {
+    border-bottom: none;
+  }
+
+  .advantages__item::before {
+    top: 35px;
+    left: 80px;
+  }
+
+  .advantages__item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+    left: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .advantages__item-title {
+    text-align: left;
+  }
+
+  .advantages__item-description {
+    text-align: left;
+    padding: 0;
+    padding-right: 30px;
+  }
+}
+
+@media @desktop-width {
+
+  .advantages__item {
+    width: 320px;
+    height: 395px;
+    margin-right: -3px;
+    padding-top: 200px;
+    padding-left: 0px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .advantages__item::before {
+    top: 75px;
+    left: 50%;
+    margin-left: -48px;
+  }
+
+  .advantages__item::after {
+    right: 0;
+    left: auto;
+    top: 65px;
+    bottom: 40px;
+    width: 1px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+
+  }
+
+  .advantages__item-title {
+    text-align: center;
+    padding: 0 40px;
+  }
+
+  .advantages__item-description {
+    text-align: center;
+    padding: 0 40px;
+  }
+}

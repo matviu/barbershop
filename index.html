@@ -3,111 +3,140 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Главная - Barbershop-adaptive</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
 </head>
 <body class="body-index">
 	<header class="page-header">
-		<img class="page-header__logo" src="img/" alt="Borodinski" width="72" height="18">
-		<nav class="main-nav">
-			<button class="main-nav__toggle" type="button"></button>
-			<ul class="main-nav__list">
-				<li class="main-nav__item"><a href="#">Главная</a></li>
-				<li class="main-nav__item"><a href="#">Наши работы</a></li>
-				<li class="main-nav__item"><a href="#">Записаться</a></li>
-				<li class="main-nav__item"><a href="#">Контакты</a></li>
-				<li class="main-nav__item"><a href="#">HTML academy</a></li>
-			</ul>
-			<ul class="main-nav__user-list">
-				<li class="main-nav__user-item"><a href="#">Вход</a></li>
-			</ul>
-		</nav>
+		<div class="wrapper-layout-center">
+			<div class="page-header__logo">
+				<img src="img/logotype-mobile.png" alt="Borodinski">
+			</div>
+			<nav class="main-nav">
+				<button class="main-nav__toggle main-nav__toggle_open" type="button"></button>
+				<ul class="main-nav__list">
+					<li class="main-nav__item main-nav__item_current"><a href="#">Главная</a></li>
+					<li class="main-nav__item"><a href="#">Наши работы</a></li>
+					<li class="main-nav__item"><a href="#">Записаться</a></li>
+					<li class="main-nav__item"><a href="#">Контакты</a></li>
+					<li class="main-nav__item"><a href="#">HTML academy</a></li>
+				</ul>
+				<ul class="main-nav__user-list">
+					<li class="main-nav__user-item"><a href="#">Вход</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
-	
+
 	<section class="stats">
 		<header class="stats__header">
 			<b class="stats__slogan">Стрижка у нас это выгодно!</b>
+			<small class="stats__additional">* - приведенные данные ложь</small>
 			<p class="stats__description">Мужская стрижка требует точного подхода. Обратимся к статистике:</p>
 		</header>
 		<table class="stats__list">
 			<tr>
-				<td class="stats__value">1 500 <sup>*</sup></td>
-				<td class="stats__field">рублей<br> вложений</td>
+				<td class="stats__value">1 500 *</td>
+				<td class="stats__field">рублей вложений</td>
 			</tr>
 			<tr>
-				<td class="stats__value">7 200 <sup>*</sup></td>
-				<td class="stats__field">секунд<br> времени мастера</td>
+				<td class="stats__value">7 200 *</td>
+				<td class="stats__field">секунд времени мастера</td>
 			</tr>
 			<tr>
-				<td class="stats__value">90 000 <sup>*</sup></td>
-				<td class="stats__field">постриженных<br> волос</td>
+				<td class="stats__value">90 000 *</td>
+				<td class="stats__field">постриженных волос</td>
 			</tr>
 			<tr>
-				<td class="stats__value">500 000 <sup>*</sup></td>
-				<td class="stats__field">лайков и<br> комплиментов</td>
+				<td class="stats__value">500 000 *</td>
+				<td class="stats__field">лайков и комплиментов</td>
 			</tr>
 		</table>
 		<small class="stats__additional">* - приведенные данные ложь</small>
 	</section>
-	
-	<section class="advatages slider">
-		<input type="radio" class="slider__toggle-invisible" name="advantages" id="advantages-radio-1">
-		<input type="radio" class="slider__toggle-invisible" name="advantages" id="advantages-radio-2">
-		<input type="radio" class="slider__toggle-invisible" name="advantages" id="advantages-radio-3">
-		<ul class="advantages__list">
-			<li class="advantages__item">
-				<h3 class="advantages__item-title">Быстро</h3>
-				<p class="advantages__item-description">Мы делаем свою работу быстро! Два часа пролетят незаметно и Вы — счастливый обладатель стильной стрижки-минутки</p>
-			</li>
-			<li class="advantages__item">
-				<h3 class="advantages__item-title">Круто</h3>
-				<p class="advantages__item-description">Забудьте, как вы стриглись раньше. Мы сделаем из Вас звезду футбола или кино. 
-				Во всяком случае внешне.</p>
-			</li>
-			<li class="advantages__item">
-				<h3 class="advantages__item-title">Дорого</h3>
-				<p class="advantages__item-description">Наши мастера — профессионалы своего дела и не могут стоить дёшево. К тому же, разве цена не даёт определённый статус?</p>
-			</li>
-		</ul>
-		<div class="slider__toggles-visible advantages__toggles">
-			<label for="advantages-radio-1" class="slider__toggle-visible">1</label>
-			<label for="advantages-radio-2" class="slider__toggle-visible">2</label>
-			<label for="advantages-radio-3" class="slider__toggle-visible">3</label>
+
+	<section class="advantages slider">
+		<div class="wrapper-layout-center">
+			<ul class="advantages__list slider__inner-slider">
+				<li class="advantages__item slider__slide-1 slider__slide_show">
+					<h3 class="advantages__item-title">Быстро</h3>
+					<p class="advantages__item-description">Мы делаем свою работу быстро! Два часа пролетят незаметно и Вы — счастливый обладатель стильной стрижки-минутки</p>
+				</li>
+				<li class="advantages__item  slider__slide-2">
+					<h3 class="advantages__item-title">Круто</h3>
+					<p class="advantages__item-description">Забудьте, как вы стриглись раньше. Мы сделаем из Вас звезду футбола или кино.
+					Во всяком случае внешне.</p>
+				</li>
+				<li class="advantages__item  slider__slide-3">
+					<h3 class="advantages__item-title">Дорого</h3>
+					<p class="advantages__item-description">Наши мастера — профессионалы своего дела и не могут стоить дёшево. К тому же, разве цена не даёт определённый статус?</p>
+				</li>
+				<div class="slider__toggles-visible advantages__toggles">
+					<label class="slider__controls">
+						<input type="radio" class="slider__toggle-invisible slider__toggle-invisible-1" name="advantages" checked>
+						<span class="slider__toggle-visible slider__toggle-visible-1"></span>
+					</label>
+					<label class="slider__controls">
+						<input type="radio" class="slider__toggle-invisible slider__toggle-invisible-2" name="advantages">
+						<span class="slider__toggle-visible slider__toggle-visible-2"></span>
+					</label>
+					<label class="slider__controls">
+						<input type="radio" class="slider__toggle-invisible slider__toggle-invisible-3" name="advantages">
+						<span class="slider__toggle-visible slider__toggle-visible-3"></span>
+					</label>
+				</div>
+			</ul>
 		</div>
 	</section>
-	
+
 	<section class="news">
-		<h3 class="news__title">Новости и акции</h3>
-		<ul class="news__list">
-			<li class="news__item">
-				<time class="news__date" datetime="2016-09-29"><b>29</b> сент</time>
-				<p class="news__content">Нам наконец завезли Ягермайстер! Теперь вы можете пропусить стаканчик во время стрижки.</p>
-			</li>
-			<li class="news__item">
-				<time class="news__date" datetime="2016-09-19"><b>19</b> сент</time>
-				<p class="news__content">В нашей команде пополнение, Борис «Бритва» Стригунец, обладатель множества титулов и наград пополнил наши стройные ряды. Спешите записаться!</p>
-			</li>
-		</ul>
-		<a href="#" class="btn news__show-all">Показать все</a>
+		<div class="wrapper-layout-center news__wrapper">
+			<h3 class="news__title">Новости и акции</h3>
+			<ul class="news__list">
+				<li class="news__item">
+					<time class="news__date" datetime="2016-09-29"><b>29</b> <span>сент</span></time>
+					<p class="news__content">Нам наконец завезли Ягермайстер! Теперь вы можете пропусить стаканчик во время стрижки.</p>
+				</li>
+				<li class="news__item">
+					<time class="news__date" datetime="2016-09-19"><b>19</b> <span>сент</span></time>
+					<p class="news__content">В нашей команде пополнение, Борис «Бритва» Стригунец, обладатель множества титулов и наград пополнил наши стройные ряды. Спешите записаться!</p>
+				</li>
+				<li class="news__item">
+					<time class="news__date" datetime="2016-09-09"><b>9</b> <span>сент</span></time>
+					<p class="news__content">Все дорожает, а наши стрижки нет! Как так? Приходите, постригитесь и узнаете, в чем здесь подвох!</p>
+				</li>
+			</ul>
+			<a href="#" class="btn news__show-all">Показать все</a>
+		</div>
 	</section>
-	
+
 	<section class="responses slider">
-		<h3 class="responses__title">Отзывы о нас</h3>
 		<input type="radio" class="slider__toggle-invisible" name="advantages" id="responses-radio-1">
 		<input type="radio" class="slider__toggle-invisible" name="advantages" id="responses-radio-2">
 		<input type="radio" class="slider__toggle-invisible" name="advantages" id="responses-radio-3">
-		<ul class="responses-list">
-			<li class="responses-item">
-				<img src="img/" alt="#" class="responses__author-photo">
-				<cite class="responses__author-name">Трэвис Баркер</cite>
-				<p class="responses__content">Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
-			</li>
-		</ul>
-		<div class="slider__toggles-visible responses__toggles">
-			<label for="responses-radio-1" class="slider__toggle-visible">1</label>
-			<label for="responses-radio-2" class="slider__toggle-visible">2</label>
-			<label for="responses-radio-3" class="slider__toggle-visible">3</label>
-		</div>
+		<div class="wrapper-layout-center">
+			<h3 class="responses__title">Отзывы о нас</h3>
+			<a href="#" class="btn responses__leave-response">Оставить свой</a>
+			<ul class="responses-list slider__inner-slider">
+				<li class="responses-item slider__slide-">
+					<img src="img/" alt="#" class="responses__author-photo">
+					<cite class="responses__author-name">Трэвис Баркер</cite>
+					<p class="responses__content">Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
+				</li>
+				<li class="responses-item">
+					<img src="img/" alt="#" class="responses__author-photo">
+					<cite class="responses__author-name">Жан Жак</cite>
+					<p class="responses__content">Спасибо за кудри! Был проездом в Питере, заскочил постричься!</p>
+				</li>
+				<div class="slider__toggles-visible responses__toggles">
+					<label for="responses-radio-1" class="slider__toggle-visible">1</label>
+					<label for="responses-radio-2" class="slider__toggle-visible">2</label>
+					<label for="responses-radio-3" class="slider__toggle-visible">3</label>
+				</div>
+			</ul>
+		<div>
 	</section>
-	
+
 	<footer class="page-footer">
 		<div class="page-footer__contacts">
 			<b>Барбершоп Бородинский</b>
@@ -121,8 +150,9 @@
 		</div>
 		<div class="page-footer__copyright">
 			Разработано:
-			<a href="#" class="btn page-footer__cipyright-link">html academy</a> 
+			<a href="#" class="btn page-footer__cipyright-link">html academy</a>
 		</div>
 	</footer>
 </body>
+<script src="js/javascript.js"></script>
 </html>
