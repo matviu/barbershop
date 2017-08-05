@@ -8,22 +8,24 @@
 </head>
 <body class="body-index">
 	<header class="page-header">
-		<div class="wrapper-layout-center">
+		<div class="wrapper-layout-center page-header__wrapper">
 			<div class="page-header__logo">
 				<img src="img/logotype-mobile.png" alt="Borodinski">
 			</div>
 			<nav class="main-nav">
-				<button class="main-nav__toggle main-nav__toggle_open" type="button"></button>
-				<ul class="main-nav__list">
-					<li class="main-nav__item main-nav__item_current"><a href="#">Главная</a></li>
-					<li class="main-nav__item"><a href="#">Наши работы</a></li>
-					<li class="main-nav__item"><a href="#">Записаться</a></li>
-					<li class="main-nav__item"><a href="#">Контакты</a></li>
-					<li class="main-nav__item"><a href="#">HTML academy</a></li>
-				</ul>
-				<ul class="main-nav__user-list">
-					<li class="main-nav__user-item"><a href="#">Вход</a></li>
-				</ul>
+				<button class="main-nav__toggle" type="button"></button>
+				<div class="main-nav__inner-wrapper">
+					<ul class="main-nav__list">
+						<li class="main-nav__item main-nav__item_current"><a href="#">Главная</a></li>
+						<li class="main-nav__item"><a href="#">Наши работы</a></li>
+						<li class="main-nav__item"><a href="#">Записаться</a></li>
+						<li class="main-nav__item"><a href="#">Контакты</a></li>
+						<li class="main-nav__item"><a href="#">HTML academy</a></li>
+					</ul>
+					<ul class="main-nav__user-list">
+						<li class="main-nav__user-item"><a href="#">Вход</a></li>
+					</ul>
+				</div>
 			</nav>
 		</div>
 	</header>
@@ -110,47 +112,69 @@
 		</div>
 	</section>
 
-	<section class="responses slider">
-		<input type="radio" class="slider__toggle-invisible" name="advantages" id="responses-radio-1">
-		<input type="radio" class="slider__toggle-invisible" name="advantages" id="responses-radio-2">
-		<input type="radio" class="slider__toggle-invisible" name="advantages" id="responses-radio-3">
-		<div class="wrapper-layout-center">
+	<section class="responses res-slider">
+		<div class="wrapper-layout-center responses-wrapper">
 			<h3 class="responses__title">Отзывы о нас</h3>
 			<a href="#" class="btn responses__leave-response">Оставить свой</a>
-			<ul class="responses-list slider__inner-slider">
-				<li class="responses-item slider__slide-">
-					<img src="img/" alt="#" class="responses__author-photo">
-					<cite class="responses__author-name">Трэвис Баркер</cite>
-					<p class="responses__content">Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
+			<ul class="responses-list res-slider__inner-slider">
+				<button class="responses__prev" type="button"></button>
+				<button class="responses__next" type="button"></button>
+				<li class="responses-item res-slider__slide-1 res-slider__slide_show">
+					<img src="img/travis.jpg" alt="#" class="responses__author-photo">
+					<div class="responses__text-wrapper">
+						<cite class="responses__author-name">Трэвис Баркер</cite>
+						<p class="responses__content">Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
+					</div>
 				</li>
-				<li class="responses-item">
-					<img src="img/" alt="#" class="responses__author-photo">
-					<cite class="responses__author-name">Жан Жак</cite>
-					<p class="responses__content">Спасибо за кудри! Был проездом в Питере, заскочил постричься!</p>
+				<li class="responses-item res-slider__slide-2">
+					<img src="#" alt="#" class="responses__author-photo">
+					<div class="responses__text-wrapper">
+						<cite class="responses__author-name">Жан Жак</cite>
+						<p class="responses__content">Спасибо за кудри! Был проездом в Питере, заскочил постричься!</p>
+					</div>
 				</li>
-				<div class="slider__toggles-visible responses__toggles">
-					<label for="responses-radio-1" class="slider__toggle-visible">1</label>
-					<label for="responses-radio-2" class="slider__toggle-visible">2</label>
-					<label for="responses-radio-3" class="slider__toggle-visible">3</label>
+				<li class="responses-item res-slider__slide-3">
+					<img src="#" alt="#" class="responses__author-photo">
+					<div class="responses__text-wrapper">
+						<cite class="responses__author-name">Педро Гонзалес</cite>
+						<p class="responses__content">Спасибо за все! Был, все понравилось!</p>
+					</div>
+				</li>
+				<div class="res-slider__toggles-visible">
+					<label class="res-slider__controls">
+						<input type="radio" class="res-slider__toggle-invisible res-slider__toggle-invisible-1" name="responses" checked>
+						<span class="res-slider__toggle-visible res-slider__toggle-visible-1"></span>
+					</label>
+					<label class="res-slider__controls">
+						<input type="radio" class="res-slider__toggle-invisible res-slider__toggle-invisible-2" name="responses">
+						<span class="res-slider__toggle-visible res-slider__toggle-visible-2"></span>
+					</label>
+					<label class="res-slider__controls">
+						<input type="radio" class="res-slider__toggle-invisible res-slider__toggle-invisible-3" name="responses">
+						<span class="res-slider__toggle-visible res-slider__toggle-visible-3"></span>
+					</label>
 				</div>
 			</ul>
-		<div>
+		</div>
 	</section>
 
 	<footer class="page-footer">
-		<div class="page-footer__contacts">
-			<b>Барбершоп Бородинский</b>
-			г. Санкт-Петербург, ул. Большая Конюшенная 19/8
-			<a href="tel:+78125556666">+7 (812) 555-66-66</a>
-		</div>
-		<div class="social-links">
-			<a href="#" class="social-link social-link_vk">Вконтакте</a>
-			<a href="#" class="social-link social-link_fb">Фейсбук</a>
-			<a href="#" class="social-link social-link_inst">Инстаграмм</a>
-		</div>
-		<div class="page-footer__copyright">
-			Разработано:
-			<a href="#" class="btn page-footer__cipyright-link">html academy</a>
+		<div class="wrapper-layout-center page-footer__wrapper">
+			<div class="page-footer__contacts">
+				<b>Барбершоп Бородинский</b>
+				<span>г. Санкт-Петербург, ул. Большая Конюшенная 19/8</span>
+				<a href="tel:+78125556666">+7 (812) 555-66-66</a>
+			</div>
+			<div class="social-links">
+				<span class="social-links__friendship">Давайте дружить!</span>
+				<a href="#" class="social-link social-link_vk"><span>Вконтакте</span></a>
+				<a href="#" class="social-link social-link_fb"><span>Фейсбук</span></a>
+				<a href="#" class="social-link social-link_inst"><span>Инстаграмм</span></a>
+			</div>
+			<div class="page-footer__copyright">
+				<span>Разработано:</span>
+				<a href="#" class="btn page-footer__cipyright-link">html academy</a>
+			</div>
 		</div>
 	</footer>
 </body>
