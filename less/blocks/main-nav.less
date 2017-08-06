@@ -6,119 +6,333 @@
 }
 
 .main-nav {
-
+  position: relative;
+  min-height: 52px;
 }
 
 .main-nav__inner-wrapper {
-  float: left;
-  overflow: hidden;
-  height: 50px;
-  width: 250px;
-
+  background-color: #6a4d38;
 }
 
-.main-nav__inner-wrapper_open {
-  overflow: visible;
-  width: 250px;
-  height: auto;
-  float: right;
+.main-nav__list {
+  background-color: #826550;
+}
+
+.main-nav__user-list {
+  background-color: #6a4d38;
 }
 
 .main-nav__toggle {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 70px;
   height: 50px;
-  background: #6a4d38 url("../img/mobile-menu-btn.png") no-repeat 17px 12px;
+  background-color: #6a4d38;
   border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #624530;
+  }
+
+  &:active {
+    background-color: #624530;
+  }
 }
 
-.main-nav__toggle_open {
-  float: left;
-  background: #6a4d38 url("../img/mobile-menu-btn.png") no-repeat -85px 12px;
+.main-nav_closed .main-nav__toggle {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 17px;
+    height: 3px;
+    width: 36px;
+    background-color: #ffffff;
+
+    box-shadow: 0 10px 0 #ffffff,
+                0 20px 0 #ffffff;
+  }
+
+  &:active::before {
+    opacity: 0.3;
+  }
+}
+
+.main-nav_opened .main-nav__toggle {
+  left: 0;
+  top: 0;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 17px;
+    height: 3px;
+    width: 40px;
+    background-color: #ffffff;
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &:active::before,
+  &:active::after {
+    opacity: 0.3;
+  }
 }
 
 .main-nav__item a {
   display: block;
-  padding: 13px 0px 13px 22px;
+  padding: 13px 0 13px 20px;
   background-color: #826550;
-  border-bottom: #71543f solid 1px;
-  border-top: #886e5b solid 1px;
-  color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
+  border-top: 1px solid #886e5b;
+  border-bottom: 1px solid #71543f;
+
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+}
 
-  background-image: url("../img/main-nav-shadow.png");
-  background-repeat: no-repeat;
-  background-position: 0 0;
+.main-nav__item a {
+  &:hover {
+    background-color: #755a46;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .main-nav__user-item a {
+  position: relative;
   display: block;
-  padding: 13px 0px 13px 50px;
+  padding: 13px 0 14px 50px;
   background-color: #6a4d38;
-  color: #ffffff;
-  text-decoration: none;
+
   font-size: 18px;
   line-height: 24px;
+  text-decoration: none;
+  color: #ffffff;
 
-  background-image: url("../img/main-nav-shadow.png");
-  background-repeat: no-repeat;
-  background-position: 0 0;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 20px;
+    width: 20px;
+    height: 24px;
+    background: url("../img/user-icon-login.png") no-repeat 0px 4px;
+    opacity: 0.3;
+  }
+}
+
+@media @mobile-width-only {
+
+  .main-nav_closed .main-nav__item {
+    display: none;
+
+    &_current {
+      display: block;
+    }
+  }
+
+  .main-nav_closed .main-nav__item_current a {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  .main-nav_closed .main-nav__user-item {
+    display: none;
+  }
+
+  .main-nav_opened .main-nav__inner-wrapper {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 70px;
+    height: 80vh;
+  }
+}
+
+.main-nav_nojs .main-nav__inner-wrapper {
+  position: static;
+}
+
+.main-nav_nojs .main-nav__toggle {
+  display: none;
+}
+
+.main-nav_nojs .main-nav__item {
+  display: block;
+}
+
+.main-nav_nojs .main-nav__item_current a {
+  padding-left: 20px;
+}
+
+.main-nav_nojs .main-nav__user-item {
+  display: block;
 }
 
 @media @tablet-width {
-  .main-nav {
+
+  .main-nav__toggle {
+    display: none;
+  }
+
+  .main-nav__inner-wrapper {
     .clearfix();
+  }
+
+  .main-nav__inner-wrapper {
+    background-color: transparent;
   }
 
   .main-nav__list {
     float: left;
+    max-width: 580px;
+    background-color: transparent;
   }
 
   .main-nav__item {
     display: inline-block;
     vertical-align: top;
+    margin-right: 27px;
+
+    &:first-child {
+      margin-left: 27px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   .main-nav__item a {
-    display: block;
-    padding: 25px 17px;
+    padding: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      background-color: transparent;
+      color: #826550;
+    }
+
+    &:active {
+      color: #5e5e5e;
+    }
+  }
+
+  .main-nav__item_current a {
+    position: relative;
+    pointer-events: none;
+    cursor: default;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: #826550;
+    }
   }
 
   .main-nav__user-list {
     float: right;
-  }
-
-  .main-nav__user-item {
-    display: inline-block;
-    vertical-align: top;
+    max-width: 60px;
+    background-color: transparent;
   }
 
   .main-nav__user-item a {
-    display: block;
-    width: 16px;
-    height: 16px;
-    padding: 25px 17px;
     font-size: 0;
-    background-color: red;
-  }
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: transparent;
 
-  .main-nav__toggle {
-    .hidden();
+    &::before {
+      top: 24px;
+      left: 10px;
+    }
+
+    &:hover::before {
+      background-image: url("../img/user-icon-login-tablet.png");
+      opacity: 1;
+    }
+
+    &:active::before {
+      background-image: url("../img/user-icon-login.png");
+      opacity: 0.3;
+    }
   }
 }
 
 @media @desktop-width {
+
+  .main-nav__list {
+    max-width: 750px;
+  }
+
+  .main-nav__item {
+    margin: 0;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
   .main-nav__item a {
-    padding: 25px 31px;
+    padding: 24px 30px 24px 30px;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    &:active {
+      color: #cacaca;
+      opacity: 1;
+    }
+  }
+
+  .main-nav__user-list {
+    width: auto;
+    max-width: 160px;
   }
 
   .main-nav__user-item a {
-    font-size: 16px;
-    width: auto;
-    height: auto;
+    padding-right: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    &:hover::before {
+      background-image: url("../img/user-icon-login-desktop.png");
+      opacity: 0.3;
+    }
+
+    &:active {
+      color: #cacaca;
+      opacity: 1;
+    }
   }
 }

@@ -138,6 +138,10 @@
 
 @media @tablet-width {
 
+  .page-footer {
+    padding-bottom: 52px;
+  }
+
   .page-footer__wrapper {
     .clearfix();
     position: relative;
@@ -186,14 +190,15 @@
 
 @media @desktop-width {
 
-  .page-footer__wrapper {
-
+  .page-footer {
+    padding-top: 52px;
   }
 
   .page-footer__contacts {
     float: none;
     display: inline-block;
     vertical-align: middle;
+    padding: 0;
     width: 320px;
     margin-right: 80px;
   }
@@ -208,6 +213,7 @@
     display: block;
     font-size: 18px;
     line-height: 27px;
+    margin-bottom: 15px;
   }
 
   .social-link {
@@ -216,5 +222,9 @@
 
   .social-link span {
     transform: scale(0.5);
+  }
+
+  .page-footer__copyright {
+    margin: 0;
   }
 }

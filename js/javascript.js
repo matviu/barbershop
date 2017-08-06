@@ -1,10 +1,18 @@
 /*-----------------main-nav open-----------------------*/
 var mainNavToggle = document.querySelector('.main-nav__toggle');
-var mainNav = document.querySelector('.main-nav__inner-wrapper');
+var mainNav = document.querySelector('.main-nav');
+
+mainNav.classList.remove("main-nav_nojs");
 
 mainNavToggle.onclick = function() {
-  mainNavToggle.classList.toggle('main-nav__toggle_open');
-  mainNav.classList.toggle('main-nav__inner-wrapper_open');
+
+  if(mainNav.classList.contains("main-nav_closed")) {
+    mainNav.classList.remove("main-nav_closed");
+    mainNav.classList.add("main-nav_opened");
+  } else {
+    mainNav.classList.remove("main-nav_opened");
+    mainNav.classList.add("main-nav_closed");
+  }
 }
 
 

@@ -8,7 +8,6 @@
 
 .page-header__logo {
   padding: 29px 0 26px 0;
-  outline: 1px dashed green;
   background-color: #242424;
 }
 
@@ -22,15 +21,20 @@
   .page-header {
     position: relative;
     padding-bottom: 397px;
+    background-color: #000000;
   }
 
   .page-header__logo {
     position: absolute;
     bottom: 0;
-    box-sizing: border-box;
-    width: inherit;
+    left: 0;
+    right: 0;
     height: 397px;
-    padding: 0;
+    padding-top: 40px;
+
+    background-image: url(../img/logo-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
 }
@@ -43,12 +47,9 @@
   }
 
   .page-header__logo {
-    position: absolute;
     bottom: 0;
-    box-sizing: border-box;
-    width: inherit;
     height: 490px;
-    padding: 0;
+    padding-top: 55px;
   }
 
 }

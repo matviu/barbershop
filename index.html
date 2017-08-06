@@ -8,17 +8,24 @@
 </head>
 <body class="body-index">
 	<header class="page-header">
-		<div class="wrapper-layout-center page-header__wrapper">
-			<div class="page-header__logo">
+		<div class="page-header__logo">
+			<picture>
+				<source media="(min-width: 1200px)" srcset="img/logotype-desktop.png">
+				<source media="(min-width: 768px)" srcset="img/logotype-tablet.png">
 				<img src="img/logotype-mobile.png" alt="Borodinski">
-			</div>
-			<nav class="main-nav">
+			</picture>
+		</div>
+
+		<div class="wrapper-layout-center page-header__wrapper">
+
+			<nav class="main-nav main-nav_closed main-nav_nojs">
 				<button class="main-nav__toggle" type="button"></button>
+
 				<div class="main-nav__inner-wrapper">
 					<ul class="main-nav__list">
-						<li class="main-nav__item main-nav__item_current"><a href="#">Главная</a></li>
+						<li class="main-nav__item"><a href="#">Главная</a></li>
 						<li class="main-nav__item"><a href="#">Наши работы</a></li>
-						<li class="main-nav__item"><a href="#">Записаться</a></li>
+						<li class="main-nav__item main-nav__item_current"><a href="#">Записаться</a></li>
 						<li class="main-nav__item"><a href="#">Контакты</a></li>
 						<li class="main-nav__item"><a href="#">HTML academy</a></li>
 					</ul>
@@ -26,7 +33,9 @@
 						<li class="main-nav__user-item"><a href="#">Вход</a></li>
 					</ul>
 				</div>
+
 			</nav>
+
 		</div>
 	</header>
 
@@ -117,10 +126,14 @@
 			<h3 class="responses__title">Отзывы о нас</h3>
 			<a href="#" class="btn responses__leave-response">Оставить свой</a>
 			<ul class="responses-list res-slider__inner-slider">
-				<button class="responses__prev" type="button"></button>
-				<button class="responses__next" type="button"></button>
+				<button class="btn responses__prev" type="button"></button>
+				<button class="btn responses__next" type="button"></button>
 				<li class="responses-item res-slider__slide-1 res-slider__slide_show">
-					<img src="img/travis.jpg" alt="#" class="responses__author-photo">
+					<picture>
+						<source media="(min-width: 1200px)" srcset="img/travis-desktop.jpg">
+						<source media="(min-width: 768px)" srcset="img/travis-tablet.jpg">
+						<img src="img/travis-mobile.jpg" alt="#" class="responses__author-photo">
+					</picture>
 					<div class="responses__text-wrapper">
 						<cite class="responses__author-name">Трэвис Баркер</cite>
 						<p class="responses__content">Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
