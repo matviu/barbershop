@@ -6,7 +6,7 @@ gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: '.',
-      index: 'index.html'
+      index: 'form.html'
     },
   })
 })
@@ -15,9 +15,7 @@ gulp.task('less', function() {
   return gulp.src('./less/style.less')
     .pipe(less().on('error', console.log))
     .pipe(gulp.dest('./css'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
+    .pipe(browserSync.reload({stream: true}))
 });
 
 gulp.task('watch', ['browserSync', 'less'], function() {
