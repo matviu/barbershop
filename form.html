@@ -39,7 +39,7 @@
 		</div>
 	</header>
 
-	<form action="#" class="appointment">
+	<form action="#2" method="post" class="appointment">
 		<div class="wrapper-layout-center appointment__wrapper">
 			<h1 class="appointment__title">Запись на стрижку</h1>
 			<button class="btn appointment__on-the-main" type="button">На главную</button>
@@ -86,15 +86,14 @@
 
 			<fieldset class="appointment__add-srvices">
 				<legend class="appointment__add-srvices-title"><span>Дополнительные услуги:</span></legend>
-
-					<label class="appointment__add-service">
-						<input class="invisible-checkbox" type="checkbox" name="paint beard" checked>
-						<span class="visible-checkbox"></span>
+				<label class="appointment__add-service">
+					<input class="invisible-checkbox" type="checkbox" name="paint beard" checked>
+					<span class="visible-checkbox"></span>
 						Подкрасить бороду
-					</label>
-					<label class="appointment__add-service">
-						<input class="invisible-checkbox" type="checkbox" name="mustache form">
-						<span class="visible-checkbox"></span>
+				</label>
+				<label class="appointment__add-service">
+					<input class="invisible-checkbox" type="checkbox" name="mustache form">
+					<span class="visible-checkbox"></span>
 						Накрутить усы
 					</label>
 					<label class="appointment__add-service">
@@ -117,9 +116,8 @@
 						<span class="visible-checkbox"></span>
 						Отполировать лысину
 					</label>
-
 			</fieldset>
-			<button class="btn appointment__submit">Отправить заявку</button>
+			<button type="submit" class="btn appointment__submit">Отправить заявку</button>
 		</div>
 	</form>
 
@@ -143,7 +141,7 @@
 		</div>
 	</footer>
 
-	<form class="login-popup" action="#" method="post">
+	<form class="login-popup" action="#1" method="post">
 		<h2 class="login-popup__title">Личный кабинет</h2>
 		<p class="login-popup__description">Введите свой лошин и пароль, чтобы войти</p>
 		<input class="text-field login-popup__login-field" type="text" name="login"  placeholder="Логин">

@@ -107,11 +107,21 @@ if(document.querySelector('body').classList.contains("body-index")) {
 var loginPopupOpen = document.querySelector('.login-button');
 var loginPopup = document.querySelector('.login-popup');
 var loginPopupClose = document.querySelector('.login-popup__close');
+var loginField = document.querySelector('.login-popup__login-field');
+var passwordField = document.querySelector('.login-popup__password-field');
 
 loginPopupOpen.onclick = function() {
   loginPopup.classList.add("login-popup_show");
+  loginField.focus();
 }
 
 loginPopupClose.onclick = function() {
   loginPopup.classList.remove("login-popup_show");
+}
+
+loginPopup.onsubmit = function(event) {
+  if(!loginField.value || !passwordField.value) {
+    event.preventDefault();
+    console.log("введите логин и пароль");
+  }
 }

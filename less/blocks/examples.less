@@ -1,0 +1,247 @@
+.examples {
+  background-color: #f8f5f2;
+  border-bottom: transparent 1px solid;
+}
+
+.examples__wrapper {
+  position: relative;
+  padding: 0 20px;
+}
+
+.examples__title {
+  margin: 0;
+  padding-bottom: 34px;
+  padding-top: 34px;
+  font-size: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.examples__on-the-main {
+  display: none;
+}
+
+.example {
+  margin-bottom: 20px;
+  border: 1px solid #e5ddd5;
+  border-top: none;
+}
+
+.example_main {
+  position: relative;
+
+  &::after {
+    content: "Работа месяца";
+    position: absolute;
+    left: 0;
+    top: 375px;
+    width: 160px;
+    height: 50px;
+    background-color: #826550;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    left: 160px;
+    top: 375px;
+    right: -10px;
+    height: 50px;
+    width: 10px;
+    border: 10px solid transparent;
+    border-top: 25px solid #826550;
+    border-bottom: 25px solid #826550;
+    border-left: 0;
+  }
+}
+
+.example__photo {
+  width: 100%;
+  height: auto;
+}
+
+.example__description {
+  padding: 20px;
+}
+
+.example__name {
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: bold;
+}
+
+.example__feedback {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.example__service-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.example__service-item {
+  display: inline-block;
+  width: 115px;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  background: url("../img/servicees-icon-sprite.png") no-repeat;
+  font-size: 16px;
+  line-height: 27px;
+  text-transform: uppercase;
+  // outline: blue 1px dashed;
+}
+
+.example__service-item_haircut {
+  background-position: -11px 2px;
+}
+
+.example__service-item_shave,
+.example__service-item_beard {
+  background-position: -12px -89px;
+  padding-left: 45px;
+}
+
+.example__service-item_mustache {
+  background-position: 0px -37px;
+  padding-left: 60px;
+}
+
+
+
+@media @tablet-width {
+
+  .examples__wrapper {
+    padding: 0;
+  }
+
+  .examples__title {
+    text-align: left;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .examples__on-the-main {
+    display: block;
+    position: absolute;
+    top: 34px;
+    right: 0px;
+    background-color: transparent;
+    width: 160px;
+  }
+
+  .example {
+    position: relative;
+    height: auto;
+    border-top: 1px solid #e5ddd5;
+    border-left: 1px solid #e5ddd5;
+    border-right: 1px solid #e5ddd5;
+  }
+
+  .example_main {
+
+    &::after {
+      top: 34px;
+      bottom: auto;
+    }
+
+    &::before {
+      top: 34px;
+      bottom: auto;
+    }
+  }
+
+  .example__photo {
+    width: auto;
+  }
+
+  .example__description {
+    float: right;
+    width: calc(640px - 270px - 4px);
+    height: inherit;
+    padding: 40px 50px 30px 50px;
+  }
+
+  .example__service-list {
+    position: absolute;
+    bottom: 30px;
+  }
+}
+
+@media @desktop-width {
+
+  .example.example_main {
+    display: block;
+    width: auto;
+    margin-right: 0;
+
+    &::after {
+      left: auto;
+      right: 0;
+    }
+
+    &::before {
+      left: auto;
+      right: 160px;
+      border-left: transparent 10px solid;
+      border-right: none;
+    }
+  }
+
+  .example_main .example__photo {
+    width: auto;
+  }
+
+  .example_main .example__description {
+    width: 476px;
+    padding: 40px 50px 30px 50px;
+    padding-top: 130px;
+    float: right;
+  }
+
+  .example_main .example__feedback {
+    padding-right: 90px;
+  }
+
+  .example_main .example__service-list {
+    position: absolute;
+  }
+
+  .example {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 35px;
+    width: 294px;
+    min-height: 520px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .example__photo {
+    width: 100%;
+  }
+
+  .example__description {
+    float: none;
+    padding: 20px;
+    width: auto;
+
+  }
+
+  .example__service-list {
+    position: static;
+  }
+
+
+}
