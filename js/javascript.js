@@ -46,59 +46,36 @@ if(document.querySelector('body').classList.contains("body-index")) {
 
 /*---------------slider-responses--------------------*/
 if(document.querySelector('body').classList.contains("body-index")) {
-  var ResAdvantagesSlideBtn1 = document.querySelector('.res-slider__toggle-visible-1');
-  var ResAdvantagesSlideBtn2 = document.querySelector('.res-slider__toggle-visible-2');
-  var ResAdvantagesSlideBtn3 = document.querySelector('.res-slider__toggle-visible-3');
-  var ResSliderAdvantagesSlide1 = document.querySelector('.res-slider__slide-1');
-  var ResSliderAdvantagesSlide2 = document.querySelector('.res-slider__slide-2');
-  var ResSliderAdvantagesSlide3 = document.querySelector('.res-slider__slide-3');
 
-  ResAdvantagesSlideBtn1.onclick = function() {
-    ResSliderAdvantagesSlide1.classList.add("res-slider__slide_show");
-    ResSliderAdvantagesSlide2.classList.remove("res-slider__slide_show");
-    ResSliderAdvantagesSlide3.classList.remove("res-slider__slide_show");
+  var slideIndex = 1;
+  showSlide(slideIndex);
+
+  function plusSlide(n) {
+    showSlide(slideIndex += n)
   }
 
-  ResAdvantagesSlideBtn2.onclick = function() {
-    ResSliderAdvantagesSlide2.classList.add("res-slider__slide_show");
-    ResSliderAdvantagesSlide1.classList.remove("res-slider__slide_show");
-    ResSliderAdvantagesSlide3.classList.remove("res-slider__slide_show");
+  function currentSlide(n) {
+    showSlide(slideIndex = n);
   }
 
-  ResAdvantagesSlideBtn3.onclick = function() {
-    ResSliderAdvantagesSlide3.classList.add("res-slider__slide_show");
-    ResSliderAdvantagesSlide1.classList.remove("res-slider__slide_show");
-    ResSliderAdvantagesSlide2.classList.remove("res-slider__slide_show");
-  }
-}
 
+  function showSlide(n) {
+    var i;
+    var slides = document.querySelectorAll('.responses-item');
+    var dots = document.querySelectorAll('.res-slider__toggle-visible')
 
-/*------------------responses-buttons----------------------*/
-if(document.querySelector('body').classList.contains("body-index")) {
-  var responsesPrev = document.querySelector('.responses__prev');
-  var responsesNext = document.querySelector('.responses__next');
-  var responses = document.querySelectorAll('.responses-item');
+    if(n < 1) {slideIndex = slides.length}
+    if(n > slides.length) {slideIndex = 1}
 
-  var i = 0;
-
-  responsesNext.onclick = function() {
-    responses[i].classList.remove("res-slider__slide_show");
-    i++;
-    if(i > responses.length - 1) {
-      i = 0
+    for(i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
     }
-    responses[i].classList.add("res-slider__slide_show");
-  }
-
-  responsesPrev.onclick = function() {
-    if(responses[i].classList.contains("res-slider__slide_show")) {
-      responses[i].classList.remove("res-slider__slide_show");
-      i--;
-      if(i < 0) {
-        i = responses.length - 1
-      }
-        responses[i].classList.add("res-slider__slide_show");
+    for(i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(' res-slider__toggle-visible_active', '')
     }
+
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " res-slider__toggle-visible_active";
   }
 }
 
@@ -117,11 +94,19 @@ loginPopupOpen.onclick = function() {
 
 loginPopupClose.onclick = function() {
   loginPopup.classList.remove("login-popup_show");
+  loginPopup.classList.remove("login-popup_error");
+}
+
+window.onkeydown = function(event) {
+  if(event.keyCode == 27 && loginPopup.classList.contains("login-popup_show")) {
+    loginPopup.classList.remove("login-popup_show");
+    loginPopup.classList.remove("login-popup_error");
+  }
 }
 
 loginPopup.onsubmit = function(event) {
   if(!loginField.value || !passwordField.value) {
     event.preventDefault();
-    console.log("введите логин и пароль");
+    loginPopup.classList.add("login-popup_error");
   }
 }

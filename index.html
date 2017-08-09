@@ -23,9 +23,9 @@
 
 				<div class="main-nav__inner-wrapper">
 					<ul class="main-nav__list">
-						<li class="main-nav__item"><a href="#">Главная</a></li>
-						<li class="main-nav__item"><a href="#">Наши работы</a></li>
-						<li class="main-nav__item main-nav__item_current"><a href="#">Записаться</a></li>
+						<li class="main-nav__item main-nav__item_current"><a href="index.html">Главная</a></li>
+						<li class="main-nav__item"><a href="photo.html">Наши работы</a></li>
+						<li class="main-nav__item"><a href="form.html">Записаться</a></li>
 						<li class="main-nav__item"><a href="#">Контакты</a></li>
 						<li class="main-nav__item"><a href="#">HTML academy</a></li>
 					</ul>
@@ -117,7 +117,7 @@
 					<p class="news__content">Все дорожает, а наши стрижки нет! Как так? Приходите, постригитесь и узнаете, в чем здесь подвох!</p>
 				</li>
 			</ul>
-			<a href="#" class="btn news__show-all">Показать все</a>
+			<a href="news.html" class="btn news__show-all">Показать все</a>
 		</div>
 	</section>
 
@@ -126,9 +126,9 @@
 			<h3 class="responses__title">Отзывы о нас</h3>
 			<a href="#" class="btn responses__leave-response">Оставить свой</a>
 			<ul class="responses-list res-slider__inner-slider">
-				<button class="btn responses__prev" type="button"></button>
-				<button class="btn responses__next" type="button"></button>
-				<li class="responses-item res-slider__slide-1 res-slider__slide_show">
+				<button class="btn responses__prev" type="button" onclick="plusSlide(-1)"></button>
+				<button class="btn responses__next" type="button" onclick="plusSlide(1)"></button>
+				<li class="responses-item res-slider__slide-1">
 					<picture>
 						<source media="(min-width: 1200px)" srcset="img/travis-desktop.jpg">
 						<source media="(min-width: 768px)" srcset="img/travis-tablet.jpg">
@@ -154,18 +154,9 @@
 					</div>
 				</li>
 				<div class="res-slider__toggles-visible">
-					<label class="res-slider__controls">
-						<input type="radio" class="res-slider__toggle-invisible res-slider__toggle-invisible-1" name="responses" checked>
-						<span class="res-slider__toggle-visible res-slider__toggle-visible-1"></span>
-					</label>
-					<label class="res-slider__controls">
-						<input type="radio" class="res-slider__toggle-invisible res-slider__toggle-invisible-2" name="responses">
-						<span class="res-slider__toggle-visible res-slider__toggle-visible-2"></span>
-					</label>
-					<label class="res-slider__controls">
-						<input type="radio" class="res-slider__toggle-invisible res-slider__toggle-invisible-3" name="responses">
-						<span class="res-slider__toggle-visible res-slider__toggle-visible-3"></span>
-					</label>
+					<span class="res-slider__toggle-visible res-slider__toggle-visible-1" onclick="currentSlide(1)"></span>
+					<span class="res-slider__toggle-visible res-slider__toggle-visible-2" onclick="currentSlide(2)"></span>
+					<span class="res-slider__toggle-visible res-slider__toggle-visible-3" onclick="currentSlide(3)"></span>
 				</div>
 			</ul>
 		</div>
