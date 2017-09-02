@@ -2,9 +2,15 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Главная - Barbershop-adaptive</title>
+
+	<link rel="icon" href="img/favicon.ico" type="x-icon">
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
+
+	<script src="js/javascript.js" defer></script>
 </head>
 <body class="body-index">
 	<header class="page-header">
@@ -69,32 +75,23 @@
 	<section class="advantages slider">
 		<div class="wrapper-layout-center">
 			<ul class="advantages__list slider__inner-slider">
-				<li class="advantages__item slider__slide-1 slider__slide_show">
+				<li class="advantages__item slider__slide_show">
 					<h3 class="advantages__item-title">Быстро</h3>
 					<p class="advantages__item-description">Мы делаем свою работу быстро! Два часа пролетят незаметно и Вы — счастливый обладатель стильной стрижки-минутки</p>
 				</li>
-				<li class="advantages__item  slider__slide-2">
+				<li class="advantages__item">
 					<h3 class="advantages__item-title">Круто</h3>
 					<p class="advantages__item-description">Забудьте, как вы стриглись раньше. Мы сделаем из Вас звезду футбола или кино.
 					Во всяком случае внешне.</p>
 				</li>
-				<li class="advantages__item  slider__slide-3">
+				<li class="advantages__item">
 					<h3 class="advantages__item-title">Дорого</h3>
 					<p class="advantages__item-description">Наши мастера — профессионалы своего дела и не могут стоить дёшево. К тому же, разве цена не даёт определённый статус?</p>
 				</li>
 				<div class="slider__toggles-visible advantages__toggles">
-					<label class="slider__controls">
-						<input type="radio" class="slider__toggle-invisible slider__toggle-invisible-1" name="advantages" checked>
-						<span class="slider__toggle-visible slider__toggle-visible-1"></span>
-					</label>
-					<label class="slider__controls">
-						<input type="radio" class="slider__toggle-invisible slider__toggle-invisible-2" name="advantages">
-						<span class="slider__toggle-visible slider__toggle-visible-2"></span>
-					</label>
-					<label class="slider__controls">
-						<input type="radio" class="slider__toggle-invisible slider__toggle-invisible-3" name="advantages">
-						<span class="slider__toggle-visible slider__toggle-visible-3"></span>
-					</label>
+					<span class="slider__toggle-visible"></span>
+					<span class="slider__toggle-visible"></span>
+					<span class="slider__toggle-visible"></span>
 				</div>
 			</ul>
 		</div>
@@ -125,29 +122,35 @@
 		<div class="wrapper-layout-center responses-wrapper">
 			<h3 class="responses__title">Отзывы о нас</h3>
 			<a href="#" class="btn responses__leave-response">Оставить свой</a>
-			<ul class="responses-list res-slider__inner-slider">
+			<ul class="responses-list responses-list_nojs res-slider__inner-slider">
 				<button class="btn responses__prev" type="button" onclick="plusSlide(-1)"></button>
 				<button class="btn responses__next" type="button" onclick="plusSlide(1)"></button>
-				<li class="responses-item res-slider__slide-1">
+				<li class="responses-item">
 					<picture>
 						<source media="(min-width: 1200px)" srcset="img/travis-desktop.jpg">
 						<source media="(min-width: 768px)" srcset="img/travis-tablet.jpg">
-						<img src="img/travis-mobile.jpg" alt="#" class="responses__author-photo">
+						<img src="img/travis-mobile.jpg" alt="author-photo" class="responses__author-photo">
 					</picture>
 					<div class="responses__text-wrapper">
 						<cite class="responses__author-name">Трэвис Баркер</cite>
 						<p class="responses__content">Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
 					</div>
 				</li>
-				<li class="responses-item res-slider__slide-2">
-					<img src="#" alt="#" class="responses__author-photo">
+				<li class="responses-item">
+					<picture>
+						<source media="(min-width: 1200px)" srcset="img/victor-desktop.jpg">
+						<img src="img/victor-mobile-tablet.jpg" alt="author-photo" class="responses__author-photo">
+					</picture>
 					<div class="responses__text-wrapper">
 						<cite class="responses__author-name">Жан Жак</cite>
 						<p class="responses__content">Спасибо за кудри! Был проездом в Питере, заскочил постричься!</p>
 					</div>
 				</li>
-				<li class="responses-item res-slider__slide-3">
-					<img src="#" alt="#" class="responses__author-photo">
+				<li class="responses-item">
+					<picture>
+						<source media="(min-width: 1200px)" srcset="img/jan-desktop.jpg">
+						<img src="img/jan-mobile-tablet.jpg" alt="author-photo" class="responses__author-photo">
+					</picture>
 					<div class="responses__text-wrapper">
 						<cite class="responses__author-name">Педро Гонзалес</cite>
 						<p class="responses__content">Спасибо за все! Был, все понравилось!</p>
@@ -177,7 +180,7 @@
 			</div>
 			<div class="page-footer__copyright">
 				<span>Разработано:</span>
-				<a href="#" class="btn page-footer__cipyright-link">html academy</a>
+				<a href="htmlacademy.ru" class="btn page-footer__cipyright-link">html academy</a>
 			</div>
 		</div>
 	</footer>
@@ -200,5 +203,4 @@
 	</form>
 
 </body>
-<script src="js/javascript.js"></script>
 </html>

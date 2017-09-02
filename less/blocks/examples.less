@@ -1,6 +1,19 @@
 .examples {
+  position: relative;
   background-color: #f8f5f2;
   border-bottom: transparent 1px solid;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    right: 0;
+
+    border-top: 35px solid #ffffff;
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid transparent;
+  }
 }
 
 .examples__wrapper {
@@ -66,6 +79,7 @@
 .example__photo {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .example__description {
@@ -116,8 +130,6 @@
   padding-left: 60px;
 }
 
-
-
 @media @tablet-width {
 
   .examples__wrapper {
@@ -137,9 +149,12 @@
     right: 0px;
     background-color: transparent;
     width: 160px;
+
+    text-align: center;
   }
 
   .example {
+    display: flex;
     position: relative;
     height: auto;
     border-top: 1px solid #e5ddd5;
@@ -165,7 +180,7 @@
   }
 
   .example__description {
-    float: right;
+
     width: calc(640px - 270px - 4px);
     height: inherit;
     padding: 40px 50px 30px 50px;
@@ -179,10 +194,26 @@
 
 @media @desktop-width {
 
+  .examples__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  .examples {
+    &::after {
+      display: none;
+    }
+  }
+
   .example.example_main {
-    display: block;
-    width: auto;
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
     margin-right: 0;
+    margin-bottom: 40px;
 
     &::after {
       left: auto;
@@ -205,7 +236,7 @@
     width: 476px;
     padding: 40px 50px 30px 50px;
     padding-top: 130px;
-    float: right;
+
   }
 
   .example_main .example__feedback {
@@ -217,11 +248,11 @@
   }
 
   .example {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     vertical-align: top;
     margin-right: 35px;
-    width: 294px;
-    min-height: 520px;
+    width: 30.3125%;
 
     &:last-child {
       margin-right: 0;
@@ -233,14 +264,18 @@
   }
 
   .example__description {
-    float: none;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+
     padding: 20px;
     width: auto;
-
   }
 
   .example__service-list {
     position: static;
+    margin-top: auto;
   }
 
 

@@ -1,6 +1,7 @@
 
-.page-header__wrapper {
-  .clearfix;
+.page-header {
+  display: flex;
+  flex-direction: column;
 }
 
 .page-header__logo {
@@ -17,19 +18,30 @@
 
   .page-header {
     position: relative;
-    padding-bottom: 397px;
     background-color: #000000;
   }
 
   .page-header_inner {
-    padding-bottom: 214px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+
+      border-top: 35px solid transparent;
+      border-left: 50vw solid #ffffff;
+      border-right: 50vw solid #ffffff;
+    }
+  }
+
+  .page-header__wrapper {
+    order: -1;
   }
 
   .page-header__logo {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     height: 397px;
     padding-top: 40px;
 
@@ -48,11 +60,10 @@
 
   .page-header {
     position: relative;
-    padding-bottom: 490px;
   }
 
   .page-header_inner {
-    padding-bottom: 307px;
+
   }
 
   .page-header__logo {

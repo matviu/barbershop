@@ -1,112 +1,155 @@
-/*-----------------main-nav open-----------------------*/
-var mainNavToggle = document.querySelector('.main-nav__toggle');
-var mainNav = document.querySelector('.main-nav');
+/*--main-nav open---*/
+(function(){
 
-mainNav.classList.remove("main-nav_nojs");
+  var mainNavToggle = document.querySelector('.main-nav__toggle');
+  var mainNav = document.querySelector('.main-nav');
 
-mainNavToggle.onclick = function() {
+  mainNav.classList.remove("main-nav_nojs");
 
-  if(mainNav.classList.contains("main-nav_closed")) {
-    mainNav.classList.remove("main-nav_closed");
-    mainNav.classList.add("main-nav_opened");
-  } else {
-    mainNav.classList.remove("main-nav_opened");
-    mainNav.classList.add("main-nav_closed");
-  }
-}
+  mainNavToggle.onclick = function() {
 
-
-/*---------------slider-advantages--------------------*/
-if(document.querySelector('body').classList.contains("body-index")) {
-  var AdvantagesSlideBtn1 = document.querySelector('.slider__toggle-visible-1');
-  var AdvantagesSlideBtn2 = document.querySelector('.slider__toggle-visible-2');
-  var AdvantagesSlideBtn3 = document.querySelector('.slider__toggle-visible-3');
-  var sliderAdvantagesSlide1 = document.querySelector('.slider__slide-1');
-  var sliderAdvantagesSlide2 = document.querySelector('.slider__slide-2');
-  var sliderAdvantagesSlide3 = document.querySelector('.slider__slide-3');
-
-  AdvantagesSlideBtn1.onclick = function() {
-    sliderAdvantagesSlide1.classList.add("slider__slide_show");
-    sliderAdvantagesSlide2.classList.remove("slider__slide_show");
-    sliderAdvantagesSlide3.classList.remove("slider__slide_show");
-  }
-
-  AdvantagesSlideBtn2.onclick = function() {
-    sliderAdvantagesSlide2.classList.add("slider__slide_show");
-    sliderAdvantagesSlide1.classList.remove("slider__slide_show");
-    sliderAdvantagesSlide3.classList.remove("slider__slide_show");
-  }
-
-  AdvantagesSlideBtn3.onclick = function() {
-    sliderAdvantagesSlide3.classList.add("slider__slide_show");
-    sliderAdvantagesSlide1.classList.remove("slider__slide_show");
-    sliderAdvantagesSlide2.classList.remove("slider__slide_show");
-  }
-}
-
-/*---------------slider-responses--------------------*/
-if(document.querySelector('body').classList.contains("body-index")) {
-
-  var slideIndex = 1;
-  showSlide(slideIndex);
-
-  function plusSlide(n) {
-    showSlide(slideIndex += n)
-  }
-
-  function currentSlide(n) {
-    showSlide(slideIndex = n);
-  }
-
-
-  function showSlide(n) {
-    var i;
-    var slides = document.querySelectorAll('.responses-item');
-    var dots = document.querySelectorAll('.res-slider__toggle-visible')
-
-    if(n < 1) {slideIndex = slides.length}
-    if(n > slides.length) {slideIndex = 1}
-
-    for(i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    if(mainNav.classList.contains("main-nav_closed")) {
+      mainNav.classList.remove("main-nav_closed");
+      mainNav.classList.add("main-nav_opened");
+    } else {
+      mainNav.classList.remove("main-nav_opened");
+      mainNav.classList.add("main-nav_closed");
     }
-    for(i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(' res-slider__toggle-visible_active', '')
+  }
+
+})();
+
+/*--slider-advantages--*/
+(function(){
+
+  if(! (document.querySelector('body').classList.contains("body-index")) )  return ;
+
+
+    var AdvantagesSlides = document.querySelectorAll('.advantages__item');
+    var AdvantagesToggles = document.querySelectorAll('.slider__toggle-visible');
+
+    var slideIndex = 1;
+    showSlide(slideIndex);
+    activateToggle(slideIndex);
+
+    AdvantagesToggles[0].onclick = function() {
+      showSlide(1);
+      activateToggle(1);
+    };
+
+    AdvantagesToggles[1].onclick = function() {
+      showSlide(2);
+      activateToggle(2);
+    };
+
+    AdvantagesToggles[2].onclick = function() {
+      showSlide(3);
+      activateToggle(3);
+    };
+
+    function showSlide(slideIndex) {
+
+      for (i = 0; i < AdvantagesSlides.length; i++) {
+        AdvantagesSlides[i].classList.add("hidden");
+      }
+
+      AdvantagesSlides[slideIndex-1].classList.remove("hidden");
+
+    };
+
+    function activateToggle(slideIndex) {
+
+      for (i = 0; i < AdvantagesToggles.length; i++) {
+        AdvantagesToggles[i].style.backgroundColor = 'transparent';
+      }
+
+      AdvantagesToggles[slideIndex-1].style.backgroundColor = '#ffffff';
     }
 
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " res-slider__toggle-visible_active";
+})();
+
+/*--slider-responses--*/
+(function(){
+
+  if(document.querySelector('body').classList.contains("body-index")) {
+
+    var responsesList = document.querySelector('.responses-list');
+    responsesList.classList.remove('responses-list_nojs');
+
+    var slideIndex = 1;
+    showSlide(slideIndex);
+
+    function plusSlide(n) {
+      showSlide(slideIndex += n)
+    }
+
+    function currentSlide(n) {
+      showSlide(slideIndex = n);
+    }
+
+
+    function showSlide(n) {
+      var i;
+      var slides = document.querySelectorAll('.responses-item');
+      var dots = document.querySelectorAll('.res-slider__toggle-visible')
+
+
+
+      if(n < 1) {slideIndex = slides.length}
+      if(n > slides.length) {slideIndex = 1}
+
+      for(i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for(i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' res-slider__toggle-visible_active', '')
+      }
+
+      slides[slideIndex - 1].style.display = "flex";
+      dots[slideIndex - 1].className += " res-slider__toggle-visible_active";
+    }
   }
-}
 
-/*------------------login-popup------------------------*/
+})();
 
-var loginPopupOpen = document.querySelector('.login-button');
-var loginPopup = document.querySelector('.login-popup');
-var loginPopupClose = document.querySelector('.login-popup__close');
-var loginField = document.querySelector('.login-popup__login-field');
-var passwordField = document.querySelector('.login-popup__password-field');
+/*--login-popup--*/
+(function(){
 
-loginPopupOpen.onclick = function() {
-  loginPopup.classList.add("login-popup_show");
-  loginField.focus();
-}
+  var loginPopupOpen = document.querySelector('.login-button');
+  var loginPopup = document.querySelector('.login-popup');
+  var loginPopupClose = document.querySelector('.login-popup__close');
+  var loginField = document.querySelector('.login-popup__login-field');
+  var passwordField = document.querySelector('.login-popup__password-field');
 
-loginPopupClose.onclick = function() {
-  loginPopup.classList.remove("login-popup_show");
-  loginPopup.classList.remove("login-popup_error");
-}
+  loginPopupOpen.onclick = function() {
+    loginPopup.classList.add("login-popup_show");
+    loginField.focus();
+  }
 
-window.onkeydown = function(event) {
-  if(event.keyCode == 27 && loginPopup.classList.contains("login-popup_show")) {
+  loginPopupClose.onclick = function() {
     loginPopup.classList.remove("login-popup_show");
     loginPopup.classList.remove("login-popup_error");
   }
-}
 
-loginPopup.onsubmit = function(event) {
-  if(!loginField.value || !passwordField.value) {
-    event.preventDefault();
-    loginPopup.classList.add("login-popup_error");
+  window.onkeydown = function(event) {
+    if(event.keyCode == 27 && loginPopup.classList.contains("login-popup_show")) {
+      loginPopup.classList.remove("login-popup_show");
+      loginPopup.classList.remove("login-popup_error");
+    }
   }
-}
+
+  loginPopup.onsubmit = function(event, callback) {
+    if(!loginField.value || !passwordField.value) {
+      event.preventDefault();
+      loginPopup.classList.add("login-popup_error");
+    }
+  }
+
+})();
+
+/*--appointment-form xhr--*/
+(function(){
+
+
+
+})();

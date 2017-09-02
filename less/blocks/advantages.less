@@ -1,9 +1,26 @@
+.advantages {
+  position: relative;
+  background-color: #353535;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    right: 0;
+
+    border-top: 35px solid #353535;
+    border-left: 50vw solid transparent;
+    border-right: 50vw solid transparent;
+  }
+}
+
 .advantages__list {
   position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: #242424;
+  background-color: #353535;
   color: #ffffff;
 }
 
@@ -53,6 +70,11 @@
 }
 
 @media @tablet-width {
+
+  .advantages {
+    padding-bottom: 20px;
+  }
+
   .advantages__list {
     background-color: #353535;
   }

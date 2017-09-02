@@ -1,22 +1,13 @@
 .container() {
-  width: 320px;
+  width: 100%;
   margin: 0 auto;
 
   @media @tablet-width {
-    width: 640px;
+    width: 83.3333%;
   }
 
   @media @desktop-width {
-    width: 960px;
-  }
-}
-
-.clearfix() {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-    height: 0;
+    max-width: 960px;
   }
 }
 

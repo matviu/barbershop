@@ -2,8 +2,12 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Записаться - Barbershop-adaptive</title>
+
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="img/favicon.ico" type="x-icon">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
 </head>
 <body class="body-form">
@@ -42,20 +46,20 @@
 	<form action="#2" method="post" class="appointment">
 		<div class="wrapper-layout-center appointment__wrapper">
 			<h1 class="appointment__title">Запись на стрижку</h1>
-			<button class="btn appointment__on-the-main" type="button">На главную</button>
-			<fieldset class="appointment__full-name">
+			<a href="index.ru" class="btn appointment__on-the-main" type="button">На главную</a>
+			<div class="appointment__full-name">
 				<input type="text" class="appointment__text-field text-field" name="surname" placeholder="Фамилия">
 				<input type="text" class="appointment__text-field text-field" name="name" placeholder="Имя">
 				<input type="text" class="appointment__text-field text-field" name="second name" placeholder="Отчество">
-			</fieldset>
-			<fieldset class="appointment__contacts">
+			</div>
+			<div class="appointment__contacts">
 				<input type="tel" class="appointment__text-field  text-field" name="tel" placeholder="Контактный телефон">
 				<input type="email" class="appointment__text-field  text-field" name="email" placeholder="Контактный e-mail">
-			</fieldset>
+			</div>
 
 			<textarea class="text-field appointment__add-info" name="additional-info"  placeholder="Доп. информация для мастера"></textarea>
 
-			<fieldset class="appointment__beard">
+			<div class="appointment__beard">
 				<legend class="appointment__beard-title"><span>Выберите модель бороды:</span></legend>
 				<label class="appointment__beard-type appointment__beard-type_admiral">
 					<input class="invisible-radiobox" type="radio" name="beard-type" value="admiral" checked>
@@ -82,9 +86,9 @@
 					мудрец
 					<span class="visible-radiobox"></span>
 				</label>
-			</fieldset>
+			</div>
 
-			<fieldset class="appointment__add-srvices">
+			<div class="appointment__add-srvices">
 				<legend class="appointment__add-srvices-title"><span>Дополнительные услуги:</span></legend>
 				<label class="appointment__add-service">
 					<input class="invisible-checkbox" type="checkbox" name="paint beard" checked>
@@ -116,7 +120,7 @@
 						<span class="visible-checkbox"></span>
 						Отполировать лысину
 					</label>
-			</fieldset>
+			</div>
 			<button type="submit" class="btn appointment__submit">Отправить заявку</button>
 		</div>
 	</form>
