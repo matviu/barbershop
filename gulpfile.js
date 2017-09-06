@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var browserSync = require('browser-sync').create();
+var ghPages = require('gulp-gh-pages');
 
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -22,4 +23,9 @@ gulp.task('watch', ['browserSync', 'less'], function() {
   gulp.watch('./less/**/*.less', ['less']);
   gulp.watch('*.html', browserSync.reload);
   gulp.watch('./js/**/*.js', browserSync.reload);
+})
+
+gulp.task('deploy', function() {
+  return gulp.src('.')
+  .pipe(ghPages());
 })

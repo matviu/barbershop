@@ -1,6 +1,5 @@
 .stats {
   .container();
-
   position: relative;
 }
 
@@ -52,7 +51,7 @@
 }
 
 .stats__value {
-  width: 60%;
+  width: 55%;
   padding-left: 20px;
   font-size: 40px;
   line-height: 40px;
@@ -63,17 +62,28 @@
 .stats__field {
   padding-right: 20px;
   text-align: right;
+
+  font-size: 18px;
+  line-height: 18px;
 }
 
 .stats__list + .stats__additional {
   position: absolute;
   z-index: 1;
   left: 50px;
-  font-size: 18px;
-  line-height: 40px;
-  font-weight: bold;
+  bottom: -45px;
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 400;
   color: #7f7f7f;
 }
+
+sub,
+sup {
+  font-size: 20px;
+}
+
+
 
 @media @tablet-width {
 
