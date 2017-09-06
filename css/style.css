@@ -201,6 +201,7 @@ button {
 }
 .main-nav__toggle {
   position: absolute;
+  z-index: 5;
   top: 0;
   right: 0;
   width: 70px;
