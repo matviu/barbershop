@@ -74,13 +74,30 @@
   if(document.querySelector('body').classList.contains("body-index")) {
 
     var responsesList = document.querySelector('.responses-list');
+    var responsesPrev = document.querySelector('.responses__prev');
+    var responsesNext = document.querySelector('.responses__next');
+    var dots = document.querySelectorAll('.res-slider__toggle-visible')
+
     responsesList.classList.remove('responses-list_nojs');
 
     var slideIndex = 1;
     showSlide(slideIndex);
 
-    function plusSlide(n) {
-      showSlide(slideIndex += n)
+    responsesPrev.onclick = function() {
+      showSlide(slideIndex -= 1)
+    }
+    responsesNext.onclick = function() {
+      showSlide(slideIndex += 1)
+    }
+
+    dots[0].onclick = function() {
+      showSlide(slideIndex = 1)
+    }
+    dots[1].onclick = function() {
+      showSlide(slideIndex = 2)
+    }
+    dots[2].onclick = function() {
+      showSlide(slideIndex = 3)
     }
 
     function currentSlide(n) {
@@ -91,9 +108,6 @@
     function showSlide(n) {
       var i;
       var slides = document.querySelectorAll('.responses-item');
-      var dots = document.querySelectorAll('.res-slider__toggle-visible')
-
-
 
       if(n < 1) {slideIndex = slides.length}
       if(n > slides.length) {slideIndex = 1}

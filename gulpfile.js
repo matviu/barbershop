@@ -26,6 +26,6 @@ gulp.task('watch', ['browserSync', 'less'], function() {
 })
 
 gulp.task('deploy', function() {
-  return gulp.src('.')
+  return gulp.src('./**/*')
   .pipe(ghPages());
 })
