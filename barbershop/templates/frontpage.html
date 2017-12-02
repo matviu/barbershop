@@ -1,55 +1,16 @@
-<!doctype html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
 
-	<title>Главная - Barbershop-adaptive</title>
+{% block page_title %}
+	Главная - Barbershop
+{% endblock %}
 
-	<link rel="icon" href="img/favicon.ico" type="x-icon">
-	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
-
-	<script src="js/javascript.js" defer></script>
-</head>
-<body class="body-index">
-	<header class="page-header">
-		<div class="page-header__logo">
-			<picture>
-				<source media="(min-width: 1200px)" srcset="img/logotype-desktop.png">
-				<source media="(min-width: 768px)" srcset="img/logotype-tablet.png">
-				<img src="img/logotype-mobile.png" alt="Borodinski">
-			</picture>
-		</div>
-
-		<div class="wrapper-layout-center page-header__wrapper">
-
-			<nav class="main-nav main-nav_closed main-nav_nojs">
-				<button class="main-nav__toggle" type="button"></button>
-
-				<div class="main-nav__inner-wrapper">
-					<ul class="main-nav__list">
-						<li class="main-nav__item main-nav__item_current"><a href="index.html">Главная</a></li>
-						<li class="main-nav__item"><a href="photo.html">Наши работы</a></li>
-						<li class="main-nav__item"><a href="form.html">Записаться</a></li>
-						<li class="main-nav__item"><a href="#">Контакты</a></li>
-						<li class="main-nav__item"><a href="#">HTML academy</a></li>
-					</ul>
-					<ul class="main-nav__user-list">
-						<li class="main-nav__user-item"><a class="login-button" href="#">Вход</a></li>
-					</ul>
-				</div>
-
-			</nav>
-
-		</div>
-	</header>
-
+{% block main %}
 	<section class="stats">
 		<header class="stats__header">
 			<b class="stats__slogan">Стрижка у нас это выгодно!</b>
 			<small class="stats__additional">* - приведенные данные ложь</small>
-			<p class="stats__description">Мужская стрижка требует точного подхода. Обратимся к статистике:</p>
+			<p class="stats__description">Мужская стрижка требует точного подхода.
+			                              Обратимся к статистике:</p>
 		</header>
 		<table class="stats__list">
 			<tr>
@@ -164,43 +125,4 @@
 			</ul>
 		</div>
 	</section>
-
-	<footer class="page-footer">
-		<div class="wrapper-layout-center page-footer__wrapper">
-			<div class="page-footer__contacts">
-				<b>Барбершоп Бородинский</b>
-				<span>г. Санкт-Петербург, ул. Большая Конюшенная 19/8</span>
-				<a href="tel:+78125556666">+7 (812) 555-66-66</a>
-			</div>
-			<div class="social-links">
-				<span class="social-links__friendship">Давайте дружить!</span>
-				<a href="#" class="social-link social-link_vk"><span>Вконтакте</span></a>
-				<a href="#" class="social-link social-link_fb"><span>Фейсбук</span></a>
-				<a href="#" class="social-link social-link_inst"><span>Инстаграмм</span></a>
-			</div>
-			<div class="page-footer__copyright">
-				<span>Разработано:</span>
-				<a href="http://htmlacademy.ru" class="btn page-footer__cipyright-link">html academy</a>
-			</div>
-		</div>
-	</footer>
-
-	<form class="login-popup" action="#1" method="post">
-		<h2 class="login-popup__title">Личный кабинет</h2>
-		<p class="login-popup__description">Введите свой лошин и пароль, чтобы войти</p>
-		<input class="text-field login-popup__login-field" type="text" name="login"  placeholder="Логин">
-		<input class="text-field login-popup__password-field" type="password" name="password"  placeholder="Пароль">
-		<label class="login-popup__remember-me">
-			<input class="login-popup__ibvisible-checkbox" type="checkbox" name="remember-me">
-			<span class="login-popup__visible-checkbox"></span>
-				Запомните меня
-		</label>
-		<a class="login-popup__password-restore" href="#">Я забыл пароль!</a>
-		<div class="login-popup__buttons">
-			<button class="btn login-popup__submit" type="submit">Войти<span class="login-popup__submit-invis"> в личный кабинет</span></button>
-			<button class="btn login-popup__close" type="button">Закрыть</button>
-		</div>
-	</form>
-
-</body>
-</html>
+{% endblock main %}
