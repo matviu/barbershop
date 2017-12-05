@@ -15,8 +15,7 @@
 	{% block styles %}
 		<link rel="icon" href="{% static 'img/favicon.ico' %}" type="x-icon">
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
-		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic"
-		      rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
 	{% endblock styles %}
 
 	{% block js %}
@@ -26,7 +25,8 @@
 
 <body class="body-index">
 	<header class="page-header">
-		<div class="page-header__logo">
+		<div class="page-header__logo
+		{% if request.path == '/' %} page-header__logo--fp {% endif %}">
 			<picture>
 				<source media="(min-width: 1200px)"
 				        srcset="{% static 'img/logotype-desktop.png' %}">
@@ -46,8 +46,8 @@
 							<a href="/">Главная</a>
 						</li>
 						<li class="main-nav__item
-						{% if request.path == '/photos/' %}main-nav__item_current{% endif %}">
-							<a href="/photos/">Наши работы</a>
+						{% if request.path == '/reviews/' %}main-nav__item_current{% endif %}">
+							<a href="/reviews/">Наши работы</a>
 						</li>
 						<li class="main-nav__item">
 							<a href="form.html">Записаться</a>

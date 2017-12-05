@@ -2,4 +2,5 @@ node_modules/
 .idea/
 *.sqlite3
 *.sql
+*.pyc
 media/
