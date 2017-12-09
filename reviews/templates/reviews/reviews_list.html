@@ -6,103 +6,109 @@
 {% endblock %}
 
 {% block main %}
-	<section class="examples">
-		<div class="wrapper-layout-center examples__wrapper">
-			<h1 class="examples__title">Наши работы</h1>
-			<a href="/" class="btn examples__on-the-main" type="button">На главную</a>
+	{% block reviews_content %}
+		<section class="examples">
+			<div class="wrapper-layout-center examples__wrapper">
+				<h1 class="examples__title">Наши работы</h1>
+				<a href="/reviews/add/" class="btn examples__on-the-main">
+					Добавить отзыв
+				</a>
 
-			{% for review in reviews %}
-				<div class="example examples__item
-							{% if review.is_best_month_job %} example_main {% endif %}">
+				{% for review in reviews %}
+					<div class="example examples__item
+								{% if review.is_best_month_job %} example_main {% endif %}">
+						<picture>
+							<source media="(min-width: 1200px)"
+							        srcset="
+							        {% if review.is_best_month_job %}
+							            {{ review.reviewphoto_set.all.0.resize_480x480 }}
+									{% else %}
+										{{ review.reviewphoto_set.all.0.resize_289x289 }}
+									{% endif %}">
+							<source media="(min-width: 768px)"
+							        srcset="">
+							<img class="example__photo" src=""
+							     alt='{{ review.name }}'>
+						</picture>
+						<div class="example__description">
+							<b class="example__name">{{ review.name }}</b>
+							<p class="example__feedback">{{ review.description }}</p>
+							<ul class="example__service-list">
+								{% if review.is_haircut %}
+									<li class="example__service-item example__service-item_haircut">
+										Стрижка
+									</li>
+								{% endif %}
+								{% if review.is_shave %}
+									<li class="example__service-item example__service-item_shave">
+										Бритье
+									</li>
+								{% endif %}
+								{% if review.is_moustache %}
+									<li class="example__service-item example__service-item_mustache">
+										Усы
+									</li>
+								{% endif %}
+							</ul>
+						</div>
+					</div>
+				{% empty %}
+					<p class="empty-text">В данном разделе пока нет отзывов</p>
+				{% endfor %}
+
+			</div>
+		</section>
+	{% endblock reviews_content %}
+
+	{% block price %}
+		<section class="price">
+			<div class="wrapper-layout-center price__wrapper">
+				<h2 class="price__title">Прейскурант</h2>
+				<table class="price__list">
+					<tr>
+						<td class="price__first-col">1</td>
+						<td class="price__second-col">Классическая стрижка </td>
+						<td class="price__third-col">(с мытьём головы)</td>
+						<td class="price__value">1 500 руб.</td>
+					</tr>
+					<tr>
+						<td class="price__first-col">2</td>
+						<td class="price__second-col">Современный вариант
+						</td>
+						<td class="price__third-col">(с мытьём головы)</td>
+						<td class="price__value">1 500 руб.</td>
+					</tr>
+					<tr>
+						<td class="price__first-col">3</td>
+						<td class="price__second-col">Индивидуальный подход</td>
+						<td class="price__third-col">(с мытьём головы)</td>
+						<td class="price__value">2 000 руб.</td>
+					</tr>
+					<tr>
+						<td class="price__first-col">4</td>
+						<td class="price__second-col">Бритьё головы
+						</td>
+						<td class="price__third-col">(без мытья)</td>
+						<td class="price__value">500 руб.</td>
+					</tr>
+					<tr>
+						<td class="price__first-col">5</td>
+						<td class="price__second-col">Бритьё головы
+						</td>
+						<td class="price__third-col">(с мытьём головы)</td>
+						<td class="price__value">1 000 руб.</td>
+					</tr>
+				</table>
+				<div class="price__discounts">
 					<picture>
 						<source media="(min-width: 1200px)"
-						        srcset="
-						        {% if review.is_best_month_job %}
-						            {{ review.reviewphoto_set.all.0.resize_480x480 }}
-								{% else %}
-									{{ review.reviewphoto_set.all.0.resize_289x289 }}
-								{% endif %}">
-						<source media="(min-width: 768px)"
-						        srcset="">
-						<img class="example__photo" src=""
-						     alt='{{ review.name }}'>
+						        srcset="{% static 'img/clock-desktop.png' %}">
+						<img class="price__clock" src="{% static 'img/clock.png' %} alt="часы">
 					</picture>
-					<div class="example__description">
-						<b class="example__name">{{ review.name }}</b>
-						<p class="example__feedback">{{ review.description }}</p>
-						<ul class="example__service-list">
-							{% if review.is_haircut %}
-								<li class="example__service-item example__service-item_haircut">
-									Стрижка
-								</li>
-							{% endif %}
-							{% if review.is_shave %}
-								<li class="example__service-item example__service-item_shave">
-									Бритье
-								</li>
-							{% endif %}
-							{% if review.is_moustache %}
-								<li class="example__service-item example__service-item_mustache">
-									Усы
-								</li>
-							{% endif %}
-						</ul>
-					</div>
+					<span>C 10:00 до 14:00
+					скидка 20%</span>
 				</div>
-			{% empty %}
-				<p class="empty-text">В данном разделе пока нет отзывов</p>
-			{% endfor %}
-
-		</div>
-	</section>
-
-	<section class="price">
-		<div class="wrapper-layout-center price__wrapper">
-			<h2 class="price__title">Прейскурант</h2>
-			<table class="price__list">
-				<tr>
-					<td class="price__first-col">1</td>
-					<td class="price__second-col">Классическая стрижка </td>
-					<td class="price__third-col">(с мытьём головы)</td>
-					<td class="price__value">1 500 руб.</td>
-				</tr>
-				<tr>
-					<td class="price__first-col">2</td>
-					<td class="price__second-col">Современный вариант
-					</td>
-					<td class="price__third-col">(с мытьём головы)</td>
-					<td class="price__value">1 500 руб.</td>
-				</tr>
-				<tr>
-					<td class="price__first-col">3</td>
-					<td class="price__second-col">Индивидуальный подход</td>
-					<td class="price__third-col">(с мытьём головы)</td>
-					<td class="price__value">2 000 руб.</td>
-				</tr>
-				<tr>
-					<td class="price__first-col">4</td>
-					<td class="price__second-col">Бритьё головы
-					</td>
-					<td class="price__third-col">(без мытья)</td>
-					<td class="price__value">500 руб.</td>
-				</tr>
-				<tr>
-					<td class="price__first-col">5</td>
-					<td class="price__second-col">Бритьё головы
-					</td>
-					<td class="price__third-col">(с мытьём головы)</td>
-					<td class="price__value">1 000 руб.</td>
-				</tr>
-			</table>
-			<div class="price__discounts">
-				<picture>
-					<source media="(min-width: 1200px)"
-					        srcset="{% static 'img/clock-desktop.png' %}">
-					<img class="price__clock" src="{% static 'img/clock.png' %} alt="часы">
-				</picture>
-				<span>C 10:00 до 14:00
-				скидка 20%</span>
 			</div>
-		</div>
-	</section>
+		</section>
+	{% endblock price %}
 {% endblock main %}

@@ -3,4 +3,6 @@ node_modules/
 *.sqlite3
 *.sql
 *.pyc
+/**/*.pyc
+/**/__pycache__/
 media/

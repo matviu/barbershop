@@ -60,14 +60,10 @@ class ReviewPhoto(models.Model):
 		else:
 			im = im.resize(size, Image.ANTIALIAS)
 
-
-		print('width, height**************************', width, height)
-		print('width_ratio, height_ratio', width_ratio, height_ratio)
-		print('ratio', ratio)
-		print('size', size)
-
-
-
+		# print('width, height**************************', width, height)
+		# print('width_ratio, height_ratio', width_ratio, height_ratio)
+		# print('ratio', ratio)
+		# print('size', size)
 
 		im.save(resize_path)
 

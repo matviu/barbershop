@@ -22,48 +22,49 @@
 /*--slider-advantages--*/
 (function(){
 
-  if(! (document.querySelector('body').classList.contains("body-index")) )  return ;
-
-
     var AdvantagesSlides = document.querySelectorAll('.advantages__item');
     var AdvantagesToggles = document.querySelectorAll('.slider__toggle-visible');
 
-    var slideIndex = 1;
-    showSlide(slideIndex);
-    activateToggle(slideIndex);
+    if (AdvantagesSlides) {
 
-    AdvantagesToggles[0].onclick = function() {
-      showSlide(1);
-      activateToggle(1);
-    };
+         var slideIndex = 1;
+        showSlide(slideIndex);
+        activateToggle(slideIndex);
 
-    AdvantagesToggles[1].onclick = function() {
-      showSlide(2);
-      activateToggle(2);
-    };
+        AdvantagesToggles[0].onclick = function() {
+          showSlide(1);
+          activateToggle(1);
+        };
 
-    AdvantagesToggles[2].onclick = function() {
-      showSlide(3);
-      activateToggle(3);
-    };
+        AdvantagesToggles[1].onclick = function() {
+          showSlide(2);
+          activateToggle(2);
+        };
 
-    function showSlide(slideIndex) {
+        AdvantagesToggles[2].onclick = function() {
+          showSlide(3);
+          activateToggle(3);
+        };
 
-      for (i = 0; i < AdvantagesSlides.length; i++) {
-        AdvantagesSlides[i].classList.add("hidden");
-      }
+        function showSlide(slideIndex) {
 
-      AdvantagesSlides[slideIndex-1].classList.remove("hidden");
+          for (i = 0; i < AdvantagesSlides.length; i++) {
+            AdvantagesSlides[i].classList.add("hidden");
+          }
 
-    };
+          AdvantagesSlides[slideIndex-1].classList.remove("hidden");
 
-    function activateToggle(slideIndex) {
+        };
 
-      for (i = 0; i < AdvantagesToggles.length; i++) {
-        AdvantagesToggles[i].style.backgroundColor = 'transparent';
-      }
+        function activateToggle(slideIndex) {
 
-      AdvantagesToggles[slideIndex-1].style.backgroundColor = '#ffffff';
+          for (i = 0; i < AdvantagesToggles.length; i++) {
+            AdvantagesToggles[i].style.backgroundColor = 'transparent';
+          }
+
+          AdvantagesToggles[slideIndex-1].style.backgroundColor = '#ffffff';
+        }
+
     }
 
 })();

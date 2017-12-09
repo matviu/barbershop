@@ -1,0 +1,21 @@
+{% extends 'reviews/reviews_list.html' %}
+
+{% block reviews_content %}
+	<section class="add-review">
+		<div class="wrapper-layout-center add_review__wrapper">
+			<form action="{% url 'add_review' %}" method="POST", enctype="multipart/form-data">
+
+				{% for field in form %}
+				{% csrf_token %}
+					<label>
+						{{ field.label }}
+						{{ field }}
+					</label>
+				{% endfor %}
+
+				<button type="submit" class="btn add-review__submit">Добавить отзыв</button>
+			</form>
+		</div>
+	</section>
+
+{% endblock reviews_content %}
