@@ -1,0 +1,51 @@
+{% load static %}
+
+<section class="price">
+	<div class="wrapper-layout-center price__wrapper">
+		<h2 class="price__title">Прейскурант</h2>
+		<table class="price__list">
+			<tr>
+				<td class="price__first-col">1</td>
+				<td class="price__second-col">Классическая стрижка </td>
+				<td class="price__third-col">(с мытьём головы)</td>
+				<td class="price__value">1 500 руб.</td>
+			</tr>
+			<tr>
+				<td class="price__first-col">2</td>
+				<td class="price__second-col">Современный вариант
+				</td>
+				<td class="price__third-col">(с мытьём головы)</td>
+				<td class="price__value">1 500 руб.</td>
+			</tr>
+			<tr>
+				<td class="price__first-col">3</td>
+				<td class="price__second-col">Индивидуальный подход</td>
+				<td class="price__third-col">(с мытьём головы)</td>
+				<td class="price__value">2 000 руб.</td>
+			</tr>
+			<tr>
+				<td class="price__first-col">4</td>
+				<td class="price__second-col">Бритьё головы
+				</td>
+				<td class="price__third-col">(без мытья)</td>
+				<td class="price__value">500 руб.</td>
+			</tr>
+			<tr>
+				<td class="price__first-col">5</td>
+				<td class="price__second-col">Бритьё головы
+				</td>
+				<td class="price__third-col">(с мытьём головы)</td>
+				<td class="price__value">1 000 руб.</td>
+			</tr>
+		</table>
+		<div class="price__discounts">
+			<picture>
+				<source media="(min-width: 1200px)"
+				        srcset="{% static 'img/clock-desktop.png' %}">
+				<img class="price__clock" src="{% static 'img/clock.png' %}" alt="часы">
+			</picture>
+			<span>C 10:00 до 14:00
+			скидка 20%</span>
+		</div>
+	</div>
+</section>

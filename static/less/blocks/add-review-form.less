@@ -1,0 +1,99 @@
+.add-review {
+background-color: #ffffff;
+}
+
+.add-review__wrapper {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+
+.add-review__form {
+	display: flex;
+}
+
+.add-review__left-wr {
+	display: flex;
+	flex-direction: column;
+
+	width: 50%;
+	padding-right: 10px;
+
+	& input {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	& textarea {
+		width: 100%
+	}
+}
+
+.add-review__right-wr {
+	width: 50%;
+	padding-left: 10px;
+
+	display: flex;
+	flex-direction: column;
+
+	& .upload {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+
+
+
+.visible-checkbox {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 20px;
+	width: 36px;
+	height: 36px;
+	border: 1px solid #e5ddd5;
+	cursor: pointer;
+	background-color: #ffffff;
+
+	&:hover {
+		border-color: #d5c9bd;
+	}
+
+	&:active {
+		background-color: #d5c9bd;
+	}
+}
+
+label.checkbox {
+	position: relative;
+	display: inline-block;
+	min-width: 36px;
+	min-height: 36px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+label.checkbox input:checked + .visible-checkbox {
+  background-image: url("../img/tick.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+label.checkbox input {
+  display: none;
+}
+
+.add-review__submit {
+  width: 100%;
+  border: none;
+  background-color: #826550;
+  color: #ffffff;
+  font-family: "PT Sans Narrow", sans-serif;
+
+  &:hover {
+    background-color: #6a4d38;
+  }
+
+  &:active {
+    color: rgba(255,255,255, 0.3);
+  }
+}
+

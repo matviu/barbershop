@@ -19,7 +19,7 @@ var del = require("del");
 
 
 gulp.task('watch', ['style'], function() {
-  gulp.watch('./static/**/*.less', ['style']);
+  gulp.watch('./static/less/**/*.less', ['style']);
 })
 
 gulp.task('deploy', function() {
@@ -28,7 +28,7 @@ gulp.task('deploy', function() {
 })
 
 gulp.task("style", function() {
-  return gulp.src("static/less/style.less")
+  return gulp.src("./static/less/style.less")
     .pipe(plumber())
     .pipe(less(
 //    {

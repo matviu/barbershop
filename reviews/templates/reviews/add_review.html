@@ -2,18 +2,41 @@
 
 {% block reviews_content %}
 	<section class="add-review">
-		<div class="wrapper-layout-center add_review__wrapper">
-			<form action="{% url 'add_review' %}" method="POST", enctype="multipart/form-data">
-
-				{% for field in form %}
+		<div class="wrapper-layout-center add-review__wrapper">
+			<form action="{% url 'add_review' %}" method="POST", enctype="multipart/form-data" class="add-review__form">
 				{% csrf_token %}
-					<label>
-						{{ field.label }}
-						{{ field }}
+				<div class="add-review__left-wr">
+					<label for="{{ form.name.id_for_label }}">
+						Имя
+						{{ form.name }}
 					</label>
-				{% endfor %}
-
-				<button type="submit" class="btn add-review__submit">Добавить отзыв</button>
+					<label for="{{ form.description.id_for_label }}">
+						Текст отзыва
+						{{ form.description }}
+					</label>
+				</div>
+				<div class="add-review__right-wr">
+					<label for="{{ form.is_haircut.id_for_label }}" class="checkbox">
+						{{ form.is_haircut }}
+						<span class="visible-checkbox"></span>
+						Стрижка
+					</label>
+					<label for="{{ form.is_shave.id_for_label }}" class="checkbox">
+						{{ form.is_shave }}
+						<span class="visible-checkbox"></span>
+						Бритье
+					</label>
+					<label for="{{ form.is_moustache.id_for_label }}" class="checkbox">
+						{{ form.is_moustache }}
+						<span class="visible-checkbox"></span>
+						Усы
+					</label>
+					<label for="{{ form.images.id_for_label }}" class="upload">
+						Вы можете прикрепить изоюражения к Вашему отзыву
+						{{ form.images }}
+					</label>
+					<button type="submit" class="btn add-review__submit">Добавить отзыв</button>
+				</div>
 			</form>
 		</div>
 	</section>
