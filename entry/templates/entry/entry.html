@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+	Запимь на прием - barbershop
+{% endblock %}
+
+{% block main %}
+	<form action="{% url 'entry:entry_form' %}" method="post" class="appointment">
+		<div class="wrapper-layout-center appointment__wrapper">
+			<h1 class="appointment__title">Запись на стрижку</h1>
+			<a href="/" class="btn appointment__on-the-main" type="button">На главную</a>
+			<div class="appointment__full-name">
+				{{ form.last_name }}
+				{{ form.first_name }}
+				{{ form.second_name }}
+			</div>
+			<div class="appointment__contacts">
+				{{ form.tel_number }}
+				{{ form.email }}
+			</div>
+
+			{{ form.add_info }}
+
+			<div class="appointment__beard">
+				<legend class="appointment__beard-title"><span>Выберите модель бороды:</span></legend>
+				{% for radiobox in form.beard_model|slice:"1:" %}
+					<label class="appointment__beard-type appointment__beard-type_{{ forloop.counter0 }}">
+						{{ radiobox.tag }}
+						{{ radiobox.choice_label }}
+						<span class="visible-radiobox"></span>
+					</label>
+				{% endfor %}
+			</div>
+
+			<div class="appointment__add-srvices">
+				<legend class="appointment__add-srvices-title"><span>Дополнительные услуги:</span></legend>
+				<label class="appointment__add-service">
+					{{ form.is_beard_paint }}
+					<span class="visible-checkbox"></span>
+					{{ form.is_beard_paint.label }}
+				</label>
+				<label class="appointment__add-service">
+					{{ form.is_moustache_spin }}
+					<span class="visible-checkbox"></span>
+					{{ form.is_moustache_spin.label }}
+				</label>
+				<label class="appointment__add-service">
+					{{ form.is_beard_brush }}
+					<span class="visible-checkbox"></span>
+					{{ form.is_beard_brush.label }}
+				</label>
+				<label class="appointment__add-service">
+					{{ form.is_trim }}
+					<span class="visible-checkbox"></span>
+					{{ form.is_trim.label }}
+				</label>
+				<label class="appointment__add-service">
+					{{ form.is_remove_gray }}
+					<span class="visible-checkbox"></span>
+					{{ form.is_remove_gray.label }}
+				</label>
+				<label class="appointment__add-service">
+					{{ form.is_polish_head }}
+					<span class="visible-checkbox"></span>
+					{{ form.is_polish_head.label }}bel>
+			</div>
+			<button type="submit" class="btn appointment__submit">Отправить заявку</button>
+		</div>
+	</form>
+
+{% endblock main %}

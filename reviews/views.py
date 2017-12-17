@@ -1,17 +1,29 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import TemplateView, FormView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from .models import Review, ReviewPhoto
 from .forms import AddReviewForm
+from price_list.models import PriceList
 
 
 class ReviewsListView(TemplateView):
 	def get(self, request, *args, **kwargs):
 		template_name = 'reviews/reviews_list.html'
 		reviews = Review.objects.all()
+		try:
+			price = PriceList.objects.get(version=True)
+		except ObjectDoesNotExist:
+			print('Ни один из прайсов не имеет отметки \'отображать на сайте\'')
+			price = PriceList.objects.all()[0]
+		except MultipleObjectsReturned:
+			print('Несколько прайсов имеют отметку \'отображать на сайте\'')
+			price = PriceList.objects.all()[0]
+
 
 		context = {
 			'reviews': reviews,
+			'price': price,
 		}
 
 		return render(request, template_name, context)
@@ -20,7 +32,25 @@ class ReviewsListView(TemplateView):
 class AddReviewView(FormView):
 	form_class = AddReviewForm
 	template_name = 'reviews/add_review.html'
-	success_url = reverse_lazy('reviews_list', urlconf='reviews.urls')
+	success_url = '/reviews/'
+
+	def get(self, request, *args, **kwargs):
+		form = AddReviewForm()
+		try:
+			price = PriceList.objects.get(version=True)
+		except ObjectDoesNotExist:
+			print('Ни один из прайсов не имеет отметки \'отображать на сайте\'')
+			price = PriceList.objects.all()[0]
+		except MultipleObjectsReturned:
+			print('Несколько прайсов имеют отметку \'отображать на сайте\'')
+			price = PriceList.objects.all()[0]
+
+		context = {
+			'form': form,
+			'price': price,
+		}
+
+		return render(request, self.template_name, context)
 
 	def post(self, request, *args, **kwargs):
 		form = AddReviewForm(request.POST, request.FILES)

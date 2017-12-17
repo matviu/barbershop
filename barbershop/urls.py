@@ -24,7 +24,8 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='frontpage.html'), name='frontpage'),
-    url(r'^reviews/', include('reviews.urls'), name='reviews'),
+    url(r'^reviews/', include('reviews.urls', namespace='reviews')),
+    url(r'^entry/', include('entry.urls', namespace='entry')),
 ]
 
 if settings.DEBUG:

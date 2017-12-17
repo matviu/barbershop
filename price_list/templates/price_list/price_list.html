@@ -2,41 +2,16 @@
 
 <section class="price">
 	<div class="wrapper-layout-center price__wrapper">
-		<h2 class="price__title">Прейскурант</h2>
+		<h2 class="price__title">{{ price.title }}</h2>
 		<table class="price__list">
-			<tr>
-				<td class="price__first-col">1</td>
-				<td class="price__second-col">Классическая стрижка </td>
-				<td class="price__third-col">(с мытьём головы)</td>
-				<td class="price__value">1 500 руб.</td>
-			</tr>
-			<tr>
-				<td class="price__first-col">2</td>
-				<td class="price__second-col">Современный вариант
-				</td>
-				<td class="price__third-col">(с мытьём головы)</td>
-				<td class="price__value">1 500 руб.</td>
-			</tr>
-			<tr>
-				<td class="price__first-col">3</td>
-				<td class="price__second-col">Индивидуальный подход</td>
-				<td class="price__third-col">(с мытьём головы)</td>
-				<td class="price__value">2 000 руб.</td>
-			</tr>
-			<tr>
-				<td class="price__first-col">4</td>
-				<td class="price__second-col">Бритьё головы
-				</td>
-				<td class="price__third-col">(без мытья)</td>
-				<td class="price__value">500 руб.</td>
-			</tr>
-			<tr>
-				<td class="price__first-col">5</td>
-				<td class="price__second-col">Бритьё головы
-				</td>
-				<td class="price__third-col">(с мытьём головы)</td>
-				<td class="price__value">1 000 руб.</td>
-			</tr>
+			{% for item in price.priceitem_set.all %}
+				<tr>
+					<td class="price__first-col">{{ forloop.counter }}</td>
+					<td class="price__second-col">{{ item.service }}</td>
+					<td class="price__third-col">{{ item.get_head_clean_display }}</td>
+					<td class="price__value">{{ item.Price }} руб.</td>
+				</tr>
+			{% endfor %}
 		</table>
 		<div class="price__discounts">
 			<picture>
@@ -44,8 +19,7 @@
 				        srcset="{% static 'img/clock-desktop.png' %}">
 				<img class="price__clock" src="{% static 'img/clock.png' %}" alt="часы">
 			</picture>
-			<span>C 10:00 до 14:00
-			скидка 20%</span>
+			<span>{{ price.special_offers }}</span>
 		</div>
 	</div>
 </section>

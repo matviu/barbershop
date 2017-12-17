@@ -14,7 +14,7 @@
 
 	{% block styles %}
 		<link rel="icon" href="{% static 'img/favicon.ico' %}" type="x-icon">
-		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
 	{% endblock styles %}
 
@@ -50,7 +50,7 @@
 							<a href="/reviews/">Наши работы</a>
 						</li>
 						<li class="main-nav__item">
-							<a href="form.html">Записаться</a>
+							<a href="/entry/">Записаться</a>
 						</li>
 						<li class="main-nav__item">
 							<a href="#">Контакты</a>

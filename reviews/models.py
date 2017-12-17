@@ -55,7 +55,7 @@ class ReviewPhoto(models.Model):
 
 
 			box = (x, y, size[0]-x, size[1]-y)
-			print('x, y', x, y)
+			#print('x, y', x, y)
 			im = im.resize(size, Image.ANTIALIAS).crop(box)
 		else:
 			im = im.resize(size, Image.ANTIALIAS)

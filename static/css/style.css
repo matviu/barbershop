@@ -956,19 +956,19 @@ sup {
   height: 130px;
   background: url("../img/beard-sketches-sprite.png") no-repeat;
 }
-.appointment__beard-type_admiral::after {
+.appointment__beard-type_0::after {
   background-position: 17px 10px;
 }
-.appointment__beard-type_woodchoper::after {
+.appointment__beard-type_1::after {
   background-position: -73px 10px;
 }
-.appointment__beard-type_polar::after {
+.appointment__beard-type_2::after {
   background-position: -168px 10px;
 }
-.appointment__beard-type_merchant::after {
+.appointment__beard-type_3::after {
   background-position: 17px -196px;
 }
-.appointment__beard-type_elder::after {
+.appointment__beard-type_4::after {
   background-position: -73px -196px;
 }
 .visible-radiobox {
@@ -1285,6 +1285,9 @@ label.checkbox {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+label.checkbox:first-child {
+  padding-top: 0;
+}
 label.checkbox input:checked + .visible-checkbox {
   background-image: url("../img/tick.png");
   background-repeat: no-repeat;
@@ -1305,6 +1308,13 @@ label.checkbox input {
 }
 .add-review__submit:active {
   color: rgba(255, 255, 255, 0.3);
+}
+.add-review__text-field {
+  padding: 9px 18px;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
 }
 @media (min-width: 768px) {
   .wrapper-layout-center {
@@ -1818,6 +1828,9 @@ label.checkbox input {
     width: 100%;
     font-size: 30px;
     line-height: 30px;
+    -webkit-box-ordinal-group: -6;
+        -ms-flex-order: -7;
+            order: -7;
   }
   .appointment__add-srvices-title::after {
     content: "";
@@ -2169,9 +2182,6 @@ label.checkbox input {
   }
   .appointment__full-name .appointment__text-field:last-child {
     margin-right: 0;
-  }
-  .appointment__contacts {
-    margin-bottom: 0;
   }
   .appointment__contacts .appointment__text-field {
     display: inline-block;

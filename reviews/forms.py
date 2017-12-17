@@ -48,9 +48,18 @@ class MultiImageField(forms.ImageField):
 
 
 class AddReviewForm(forms.Form):
-	name = forms.CharField(label='Ваше имя')
-	description = forms.CharField(label='Текст отзыва', widget=forms.Textarea)
-	images = MultiImageField(required=False, widget=ClearableMultiFileInput(attrs={'multiple': True}))
+	name = forms.CharField(label='Ваше имя',
+	                       widget=forms.TextInput(attrs={
+		                       'class': 'text-field add-review__text-field',
+		                       'placeholder': 'Имя'
+	                       }))
+	description = forms.CharField(label='Текст отзыва',
+	                              widget=forms.Textarea(attrs={
+		                              'class': 'text-field add-review__text-field',
+		                              'placeholder': 'Текст отзыва'
+	                              }))
+	images = MultiImageField(required=False,
+	                         widget=ClearableMultiFileInput(attrs={'multiple': True}))
 	is_haircut = forms.BooleanField(label='Стрижка', required=False)
 	is_shave = forms.BooleanField(label='Бритье', required=False)
 	is_moustache = forms.BooleanField(label='Усы', required=False)
