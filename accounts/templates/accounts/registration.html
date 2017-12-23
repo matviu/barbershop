@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="wrapper-layout-center">
+	<form class="login-popup" action="{% url 'accounts:registration' %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<h2 class="login-popup__title">Регистрация</h2>
+		{{ form }}
+		{{ form.errors }}
+		<button class="btn login-popup__submit" type="submit">Регистрация</button>
+	</form>
+</div>
+{% endblock main %}

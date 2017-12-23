@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='frontpage.html'), name='frontpage'),
     url(r'^reviews/', include('reviews.urls', namespace='reviews')),
     url(r'^entry/', include('entry.urls', namespace='entry')),
+    url(r'^accounts/', include('accounts.urls', namespace='accounts'))
 ]
 
 if settings.DEBUG:

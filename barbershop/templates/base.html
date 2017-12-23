@@ -1,4 +1,5 @@
 {% load static %}
+{% load chunks_tags %}
 <!doctype html>
 <html lang="ru">
 <head>
@@ -14,7 +15,7 @@
 
 	{% block styles %}
 		<link rel="icon" href="{% static 'img/favicon.ico' %}" type="x-icon">
-		<link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
 	{% endblock styles %}
 
@@ -46,22 +47,27 @@
 							<a href="/">Главная</a>
 						</li>
 						<li class="main-nav__item
-						{% if request.path == '/reviews/' %}main-nav__item_current{% endif %}">
+						{% if '/reviews/' in request.path %}main-nav__item_current{% endif %}">
 							<a href="/reviews/">Наши работы</a>
 						</li>
-						<li class="main-nav__item">
+						<li class="main-nav__item
+						{% if '/entry/' in request.path %}main-nav__item_current{% endif %}">
 							<a href="/entry/">Записаться</a>
 						</li>
 						<li class="main-nav__item">
 							<a href="#">Контакты</a>
 						</li>
 						<li class="main-nav__item">
-							<a href="#">matviu</a>
+							<a href="{% chunk 'portfolio-link' %}">matviu</a>
 						</li>
 					</ul>
 					<ul class="main-nav__user-list">
 						<li class="main-nav__user-item">
-							<a class="login-button" href="#">Вход</a>
+							{% if user.is_authenticated %}
+								<a class="login-button" href="/accounts/login/">{{ user.username }}</a>
+							{% else %}
+								<a class="login-button" href="/accounts/login/">Вход</a>
+							{% endif %}
 						</li>
 					</ul>
 				</div>
@@ -85,37 +91,20 @@
 			</div>
 			<div class="social-links">
 				<span class="social-links__friendship">Давайте дружить!</span>
-				<a href="#" class="social-link social-link_vk"><span>Вконтакте</span></a>
-				<a href="#" class="social-link social-link_fb"><span>Фейсбук</span></a>
-				<a href="#" class="social-link social-link_inst"><span>Инстаграмм</span></a>
+				<a href="{% chunk 'vk-link' %}" class="social-link social-link_vk"><span>Вконтакте
+				</span></a>
+				<a href="{% chunk 'fb-link' %}"
+				   class="social-link social-link_fb"><span>Фейсбук</span></a>
+				<a href="{% chunk 'inst-link' %}"
+				   class="social-link social-link_inst"><span>Инстаграмм</span></a>
 			</div>
 			<div class="page-footer__copyright">
 				<span>Разработано:</span>
-				<a href="http://htmlacademy.ru" class="btn page-footer__cipyright-link">html academy</a>
+				<a href="{% chunk 'portfolio-link' %}"
+				   class="btn page-footer__cipyright-link">MATVIU
+				</a>
 			</div>
 		</div>
 	</footer>
-
-	<form class="login-popup" action="#1" method="post">
-		<h2 class="login-popup__title">Личный кабинет</h2>
-		<p class="login-popup__description">Введите свой лошин и пароль, чтобы войти</p>
-		<input class="text-field login-popup__login-field" type="text" name="login"
-		       placeholder="Логин">
-		<input class="text-field login-popup__password-field" type="password" name="password"
-		       placeholder="Пароль">
-		<label class="login-popup__remember-me">
-			<input class="login-popup__ibvisible-checkbox" type="checkbox" name="remember-me">
-			<span class="login-popup__visible-checkbox"></span>
-				Запомните меня
-		</label>
-		<a class="login-popup__password-restore" href="#">Я забыл пароль!</a>
-		<div class="login-popup__buttons">
-			<button class="btn login-popup__submit" type="submit">
-				Войти<span class="login-popup__submit-invis"> в личный кабинет</span>
-			</button>
-			<button class="btn login-popup__close" type="button">Закрыть</button>
-		</div>
-	</form>
-
 </body>
 </html>

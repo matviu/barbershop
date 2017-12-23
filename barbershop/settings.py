@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'reviews',
     'price_list',
     'entry',
+    'chunks',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -121,6 +123,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+DATETIME_INPUT_FORMATS = '%Y/%m/%d %H:%m'
 
 
 # Static files (CSS, JavaScript, Images)

@@ -642,114 +642,17 @@ sup {
   color: #7b7b7b;
 }
 .login-popup {
-  display: none;
-  position: absolute;
-  z-index: 50;
-  top: 137px;
-  left: 50%;
-  margin-left: -160px;
+  position: relative;
   width: 320px;
   padding: 35px 20px 35px;
   background-color: #f8f5f2;
   -webkit-box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.75);
           box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.75);
 }
-@-webkit-keyframes bounce {
-  0% {
-    -webkit-transform: translateY(-6000px);
-            transform: translateY(-6000px);
-  }
-  50% {
-    -webkit-transform: translateY(-3000px);
-            transform: translateY(-3000px);
-  }
-  90% {
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px);
-  }
-  95% {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-  }
-  100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-}
-@keyframes bounce {
-  0% {
-    -webkit-transform: translateY(-6000px);
-            transform: translateY(-6000px);
-  }
-  50% {
-    -webkit-transform: translateY(-3000px);
-            transform: translateY(-3000px);
-  }
-  90% {
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px);
-  }
-  95% {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-  }
-  100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-}
-@-webkit-keyframes shake {
-  0%,
-  100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translateX(10px);
-            transform: translateX(10px);
-  }
-}
-@keyframes shake {
-  0%,
-  100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translateX(10px);
-            transform: translateX(10px);
-  }
-}
-.login-popup_show {
-  display: block;
-  -webkit-animation: bounce 1s ease-in-out;
-          animation: bounce 1s ease-in-out;
-}
-.login-popup_error {
-  -webkit-animation: shake 0.5s ease-in-out;
-          animation: shake 0.5s ease-in-out;
+.login-popup::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .login-popup__title {
   margin: 0;
@@ -822,6 +725,15 @@ sup {
   line-height: 30px;
   color: #000000;
 }
+.login-popup__registration {
+  float: right;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
+}
 .login-popup__buttons {
   margin-top: 29px;
 }
@@ -863,6 +775,13 @@ sup {
   border-top: 35px solid #f8f5f2;
   border-left: 50vw solid transparent;
   border-right: 50vw solid transparent;
+}
+.appointment label {
+  position: relative;
+  display: block;
+}
+.appointment .appointment__beard {
+  position: relative;
 }
 .appointment__wrapper {
   position: relative;
@@ -1067,6 +986,13 @@ sup {
 }
 .appointment__submit:active {
   color: rgba(255, 255, 255, 0.3);
+}
+.errorlist {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  color: red;
+  margin: 0;
 }
 .examples {
   position: relative;
@@ -1701,8 +1627,7 @@ label.checkbox input {
     clear: both;
   }
   .login-popup {
-    width: 460px;
-    margin-left: -230px;
+    width: 100%;
     padding: 57px 70px 57px;
   }
   .login-popup__title {
@@ -1769,14 +1694,29 @@ label.checkbox input {
   }
   .appointment__full-name {
     margin-bottom: 34px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .appointment__full-name label {
+    width: 32%;
   }
   .appointment__full-name .text-field {
     display: inline-block;
-    width: 33%;
+    width: 100%;
     margin-right: -1px;
   }
   [type="tel"].appointment__text-field {
     margin-bottom: 34px;
+  }
+  .appointment__date {
+    margin-bottom: 32px;
+  }
+  .appointment__contacts label:first-child {
+    margin-bottom: 32px;
   }
   .appointment__add-info {
     min-height: 210px;
@@ -2175,18 +2115,30 @@ label.checkbox input {
   }
   .appointment__full-name {
     margin-bottom: 28px;
-  }
-  .appointment__full-name .appointment__text-field {
-    width: 295px;
-    margin-right: 34px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   .appointment__full-name .appointment__text-field:last-child {
     margin-right: 0;
   }
+  .appointment__date {
+    margin-bottom: 32px;
+  }
+  .appointment__contacts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .appointment__contacts .appointment__text-field {
     display: inline-block;
     width: 461px;
-    margin-right: 34px;
   }
   .appointment__contacts .appointment__text-field:last-child {
     margin-right: 0;

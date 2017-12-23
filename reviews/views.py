@@ -10,15 +10,21 @@ from price_list.models import PriceList
 class ReviewsListView(TemplateView):
 	def get(self, request, *args, **kwargs):
 		template_name = 'reviews/reviews_list.html'
-		reviews = Review.objects.all()
+		try:
+			reviews = Review.objects.all()
+		except ObjectDoesNotExist:
+			reviews = []
 		try:
 			price = PriceList.objects.get(version=True)
 		except ObjectDoesNotExist:
 			print('Ни один из прайсов не имеет отметки \'отображать на сайте\'')
-			price = PriceList.objects.all()[0]
+			try:
+				price = PriceList.objects.all().first()
+			except ObjectDoesNotExist:
+				print('В системе управления отсутствуют прайсы')
 		except MultipleObjectsReturned:
 			print('Несколько прайсов имеют отметку \'отображать на сайте\'')
-			price = PriceList.objects.all()[0]
+			price = PriceList.objects.all().first()
 
 
 		context = {
@@ -40,10 +46,13 @@ class AddReviewView(FormView):
 			price = PriceList.objects.get(version=True)
 		except ObjectDoesNotExist:
 			print('Ни один из прайсов не имеет отметки \'отображать на сайте\'')
-			price = PriceList.objects.all()[0]
+			try:
+				price = PriceList.objects.all().first()
+			except ObjectDoesNotExist:
+				print('В системе управления отсутствуют прайсы')
 		except MultipleObjectsReturned:
 			print('Несколько прайсов имеют отметку \'отображать на сайте\'')
-			price = PriceList.objects.all()[0]
+			price = PriceList.objects.all().first()
 
 		context = {
 			'form': form,

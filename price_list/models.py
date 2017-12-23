@@ -7,6 +7,10 @@ class PriceList(models.Model):
 	version = models.BooleanField(verbose_name='Отображать на сайте', default=False)
 	special_offers = models.CharField(verbose_name='Акции', max_length=200)
 
+	class Meta:
+		verbose_name = 'Прайс'
+		verbose_name_plural = 'Прайсы'
+
 	def __str__(self):
 		return self.title
 
@@ -22,15 +26,15 @@ class PriceList(models.Model):
 		super(PriceList, self).save(force_insert=False, force_update=False, using=None, update_fields=None)
 
 
-ADD_SERVICES = (
-	('0', '(с мытьем головы)'),
-	('1', '(без мытья)'),
-)
-
-
 class PriceItem(models.Model):
 	price_list = models.ForeignKey(PriceList, on_delete=models.CASCADE)
 	service = models.CharField(verbose_name='Название услуги', max_length=150)
+
+	ADD_SERVICES = (
+		('0', '(с мытьем головы)'),
+		('1', '(без мытья)'),
+	)
+
 	head_clean = models.CharField(max_length=200, choices=ADD_SERVICES)
 	Price = models.PositiveIntegerField()
 

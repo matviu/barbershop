@@ -3,10 +3,10 @@ from django.db import models
 class Entry(models.Model):
 	last_name = models.CharField(max_length=100, verbose_name='Фамилия')
 	first_name = models.CharField(max_length=100, verbose_name='Имя')
-	second_name = models.CharField(max_length=100, verbose_name='Отчество')
-	tel_number = models.CharField(max_length=100, verbose_name='Контактный телефон')
+	second_name = models.CharField(max_length=100, verbose_name='Отчество', blank=True)
+	tel_number = models.CharField(max_length=100, verbose_name='Контактный телефон', blank=True)
 	email = models.EmailField(max_length=100, verbose_name='Контактный e-mail')
-	add_info = models.CharField(max_length=200, verbose_name='доп. информация')
+	add_info = models.TextField(max_length=200, verbose_name='доп. информация')
 
 	BEARD_MODELS = (
 		('admiral', 'адмирал'),
@@ -33,6 +33,12 @@ class Entry(models.Model):
 		verbose_name = 'запись на прием'
 		verbose_name_plural = 'записи на прием'
 		ordering = ['-date_record']
+
+	def __str__(self):
+		return self.get_full_name()
+
+	def get_full_name(self):
+		return self.last_name + ' ' + self.first_name
 
 
 

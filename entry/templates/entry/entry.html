@@ -5,21 +5,56 @@
 {% endblock %}
 
 {% block main %}
-	<form action="{% url 'entry:entry_form' %}" method="post" class="appointment">
+	<form action="{% url 'entry:entry_form' %}" method="POST" class="appointment" novalidate>
+		{% csrf_token %}
 		<div class="wrapper-layout-center appointment__wrapper">
 			<h1 class="appointment__title">Запись на стрижку</h1>
 			<a href="/" class="btn appointment__on-the-main" type="button">На главную</a>
+
 			<div class="appointment__full-name">
-				{{ form.last_name }}
-				{{ form.first_name }}
-				{{ form.second_name }}
-			</div>
-			<div class="appointment__contacts">
-				{{ form.tel_number }}
-				{{ form.email }}
+				<label for="{{ form.last_name.id_for_label }}"
+				       class="{% if form.last_name.errors %} error{% endif %}">
+					{{ form.last_name }}
+					{{ form.last_name.errors }}
+				</label>
+				<label for="{{ form.first_name.id_for_label }}"
+				       class="{% if form.first_name.errors %} error{% endif %}">
+					{{ form.first_name }}
+					{{ form.first_name.errors }}
+				</label>
+				<label for="{{ form.second_name.id_for_label }}"
+				       class="{% if form.second_name.errors %} error{% endif %}">
+					{{ form.second_name }}
+					{{ form.second_name.errors }}
+				</label>
 			</div>
 
-			{{ form.add_info }}
+			<div class="appointment__date">
+				<label for="{{ form.date_record.id_for_label }}"
+					       class="{% if form.date_record.errors %} error{% endif %}">
+					{{ form.date_record }}
+					{{ form.date_record.errors }}
+				</label>
+			</div>
+
+			<div class="appointment__contacts">
+				<label for="{{ form.tel_number.id_for_label }}"
+				       class="{% if form.tel_number.errors %} error{% endif %}">
+					{{ form.tel_number }}
+					{{ form.tel_number.errors }}
+				</label>
+				<label for="{{ form.email.id_for_label }}"
+				       class="{% if form.email.errors %} error{% endif %}">
+					{{ form.email }}
+					{{ form.email.errors }}
+				</label>
+			</div>
+
+			<label for="{{ form.add_info.id_for_label }}"
+				       class="{% if form.add_info.errors %} error{% endif %}">
+				{{ form.add_info }}
+				{{ form.add_info.errors }}
+			</label>
 
 			<div class="appointment__beard">
 				<legend class="appointment__beard-title"><span>Выберите модель бороды:</span></legend>
@@ -30,6 +65,7 @@
 						<span class="visible-radiobox"></span>
 					</label>
 				{% endfor %}
+				{{ form.beard_model.errors }}
 			</div>
 
 			<div class="appointment__add-srvices">
@@ -38,31 +74,38 @@
 					{{ form.is_beard_paint }}
 					<span class="visible-checkbox"></span>
 					{{ form.is_beard_paint.label }}
+					{{ form.is_beard_paint.errors }}
 				</label>
 				<label class="appointment__add-service">
 					{{ form.is_moustache_spin }}
 					<span class="visible-checkbox"></span>
 					{{ form.is_moustache_spin.label }}
+					{{ form.is_moustache_spin.errors }}
 				</label>
 				<label class="appointment__add-service">
 					{{ form.is_beard_brush }}
 					<span class="visible-checkbox"></span>
 					{{ form.is_beard_brush.label }}
+					{{ form.is_beard_brush.errors }}
 				</label>
 				<label class="appointment__add-service">
 					{{ form.is_trim }}
 					<span class="visible-checkbox"></span>
 					{{ form.is_trim.label }}
+					{{ form.is_trim.errors }}
 				</label>
 				<label class="appointment__add-service">
 					{{ form.is_remove_gray }}
 					<span class="visible-checkbox"></span>
 					{{ form.is_remove_gray.label }}
+					{{ form.is_remove_gray.errors }}
 				</label>
 				<label class="appointment__add-service">
 					{{ form.is_polish_head }}
 					<span class="visible-checkbox"></span>
-					{{ form.is_polish_head.label }}bel>
+					{{ form.is_polish_head.label }}
+					{{ form.is_polish_head.errors }}
+				</label>
 			</div>
 			<button type="submit" class="btn appointment__submit">Отправить заявку</button>
 		</div>

@@ -1,37 +1,15 @@
 .login-popup {
-  display: none;
-  position: absolute;
-  z-index: 50;
-  top: 137px;
-  left: 50%;
-  margin-left: -160px;
+  position: relative;
   width: 320px;
   padding: 35px 20px 35px;
   background-color: #f8f5f2;
   box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.75);
-}
 
-@keyframes bounce {
-  0% {transform: translateY(-6000px);}
-  50% {transform: translateY(-3000px);}
-  90% {transform: translateY(10px);}
-  95% {transform: translateY(-10px);}
-  100% {transform: translateY(0px);}
-}
-
-@keyframes shake {
-  0%, 100% {transform: translateX(0px);}
-  10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
-  20%, 40%, 60%, 80% {transform: translateX(10px);}
-}
-
-.login-popup_show {
-  display: block;
-  animation: bounce 1s ease-in-out;
-}
-
-.login-popup_error {
-  animation: shake 0.5s ease-in-out;
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 .login-popup__title {
@@ -118,6 +96,17 @@
   color: #000000;
 }
 
+.login-popup__registration {
+  float: right;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-top: 20px;
+
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
+}
+
 .login-popup__buttons {
   margin-top: 29px;
 }
@@ -155,8 +144,7 @@
 
 @media @tablet-width {
   .login-popup {
-    width: 460px;
-    margin-left: -230px;
+    width: 100%;
     padding: 57px 70px 57px;
   }
 

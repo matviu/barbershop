@@ -13,5 +13,7 @@ class ReviewAdmin(admin.ModelAdmin):
 		InlineReviewPhoto,
 	]
 
+	list_display = ['name', 'date_created', 'date_updated']
+
 
 admin.site.register(Review, ReviewAdmin)

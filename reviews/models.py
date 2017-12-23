@@ -16,6 +16,8 @@ class Review(models.Model):
 	is_best_month_job = models.BooleanField(verbose_name='работа месяца', default=False)
 
 	class Meta:
+		verbose_name = 'Отзыв'
+		verbose_name_plural = 'Отзывы'
 		ordering = ['date_created']
 
 	def __str__(self):
