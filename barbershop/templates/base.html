@@ -64,7 +64,7 @@
 					<ul class="main-nav__user-list">
 						<li class="main-nav__user-item">
 							{% if user.is_authenticated %}
-								<a class="login-button" href="/accounts/login/">{{ user.username }}</a>
+								<a class="login-button" href="/accounts/profile/">{{ user.username }}</a>
 							{% else %}
 								<a class="login-button" href="/accounts/login/">Вход</a>
 							{% endif %}
