@@ -81,45 +81,27 @@
 	<section class="responses res-slider">
 		<div class="wrapper-layout-center responses-wrapper">
 			<h3 class="responses__title">Отзывы о нас</h3>
-			<a href="#" class="btn responses__leave-response">Оставить свой</a>
+			<a href="/reviews/add/" class="btn responses__leave-response">Оставить свой</a>
 			<ul class="responses-list responses-list_nojs res-slider__inner-slider">
 				<button class="btn responses__prev" type="button" ></button>
 				<button class="btn responses__next" type="button" ></button>
-				<li class="responses-item">
-					<picture>
-						<source media="(min-width: 1200px)" srcset="img/travis-desktop.jpg">
-						<source media="(min-width: 768px)" srcset="img/travis-tablet.jpg">
-						<img src="img/travis-mobile.jpg" alt="author-photo" class="responses__author-photo">
-					</picture>
-					<div class="responses__text-wrapper">
-						<cite class="responses__author-name">Трэвис Баркер</cite>
-						<p class="responses__content">Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
-					</div>
-				</li>
-				<li class="responses-item">
-					<picture>
-						<source media="(min-width: 1200px)" srcset="img/victor-desktop.jpg">
-						<img src="img/victor-mobile-tablet.jpg" alt="author-photo" class="responses__author-photo">
-					</picture>
-					<div class="responses__text-wrapper">
-						<cite class="responses__author-name">Жан Жак</cite>
-						<p class="responses__content">Спасибо за кудри! Был проездом в Питере, заскочил постричься!</p>
-					</div>
-				</li>
-				<li class="responses-item">
-					<picture>
-						<source media="(min-width: 1200px)" srcset="img/jan-desktop.jpg">
-						<img src="img/jan-mobile-tablet.jpg" alt="author-photo" class="responses__author-photo">
-					</picture>
-					<div class="responses__text-wrapper">
-						<cite class="responses__author-name">Педро Гонзалес</cite>
-						<p class="responses__content">Спасибо за все! Был, все понравилось!</p>
-					</div>
-				</li>
+				{% for review in reviews %}
+					<li class="responses-item">
+						<picture>
+							<source media="(min-width: 1200px)" srcset="{{ review.reviewphoto_set.all.0.resize_249x160 }}">
+							<source media="(min-width: 768px)" srcset="{{ review.reviewphoto_set.all.0.resize_80x80 }}">
+							<img src="{{ review.reviewphoto_set.all.0.resize_50x50 }}" alt="author-photo" class="responses__author-photo">
+						</picture>
+						<div class="responses__text-wrapper">
+							<cite class="responses__author-name">{{ review.name }}</cite>
+							<p class="responses__content">{{ review.description }}</p>
+						</div>
+					</li>
+				{% endfor %}
 				<div class="res-slider__toggles-visible">
-					<span class="res-slider__toggle-visible res-slider__toggle-visible-1"></span>
-					<span class="res-slider__toggle-visible res-slider__toggle-visible-2"></span>
-					<span class="res-slider__toggle-visible res-slider__toggle-visible-3"></span>
+					{% for review in reviews %}
+						<span class="res-slider__toggle-visible res-slider__toggle-visible-{{ forloop.counter }}"></span>
+					{% endfor %}
 				</div>
 			</ul>
 		</div>

@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views.static import serve
 from django.conf import settings
+from barbershop.views import FrontpageView
 
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name='frontpage.html'), name='frontpage'),
+    url(r'^$', FrontpageView.as_view(), name='frontpage'),
     url(r'^reviews/', include('reviews.urls', namespace='reviews')),
     url(r'^entry/', include('entry.urls', namespace='entry')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts'))

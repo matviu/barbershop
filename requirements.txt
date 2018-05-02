@@ -1,11 +1,3 @@
-assert-exists==0.0.23
-caller-module==0.0.27
 Django==1.11.7
-fullpath==0.0.18
-isstring==0.0.17
-olefile==0.44
 Pillow==4.3.0
-public==0.0.46
-pytz==2017.3
-setupfiles==0.0.50
-virtualenv==15.1.0
+

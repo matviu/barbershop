@@ -10,10 +10,7 @@
 			<h2>{{ user.username }}</h2>
 			{{ form.errors }}
 			{% for field in form %}
-				{% if field.name == 'password' or field.name == 'password2' %}
-				{% else %}
-					<p>{{ field }}</p>
-				{% endif %}
+				<p>{{ field }}</p>
 			{% endfor %}
 			{% if user.account.avatar %}
 				<img src="{{ user.account.resize_200x200 }}" alt="аватар">
@@ -21,15 +18,15 @@
 			<button class="btn login-popup__submit" type="submit">Обновить</button>
 		</form>
 
-		<form action="{% url 'accounts:password_change_done' %}" method="POST" enctype="">
-			{% csrf_token %}
-			<h2 class="login-popup__title">Изменить пароль</h2>
-			{{ form_password.errors }}
-			{% for field in form_password %}
-				<p>{{ field.label }}{{ field }}</p>
-			{% endfor %}
-			<button class="btn login-popup__submit" type="submit">Изменить пароль</button>
-		</form>
+		<!--<form action="{% url 'accounts:password_change_done' %}" method="POST" enctype="">-->
+			<!--{% csrf_token %}-->
+			<!--<h2 class="login-popup__title">Изменить пароль</h2>-->
+			<!--{{ form_password.errors }}-->
+			<!--{% for field in form_password %}-->
+				<!--<p>{{ field.label }}{{ field }}</p>-->
+			<!--{% endfor %}-->
+			<!--<button class="btn login-popup__submit" type="submit">Изменить пароль</button>-->
+		<!--</form>-->
 
 		<a href="{% url 'accounts:logout' %}">Выйти из аккаунта</a>
 

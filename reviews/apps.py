@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
+
 from django.apps import AppConfig
 
 
 class ReviewsConfig(AppConfig):
     name = 'reviews'
-    verbose_name = 'Блок отзывов'
+    verbose_name = u'Блок отзывов'
